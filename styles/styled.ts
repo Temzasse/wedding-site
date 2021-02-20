@@ -1,11 +1,38 @@
+import type { CSSProperties } from "react";
 import { createCss } from "@stitches/react";
-import typography from "./typography";
+
+type TypographyVariant = "body" | "bodySmall" | "title1" | "title2";
+type TypographyVariantVar = `$${TypographyVariant}`;
+
+const typography: { [variant in TypographyVariantVar]: CSSProperties } = {
+  $body: {
+    fontFamily: "Arial",
+    lineHeight: 1.4,
+    fontSize: "1rem",
+    fontWeight: 400,
+  },
+  $bodySmall: {
+    fontFamily: "Arial",
+    lineHeight: 1.2,
+    fontSize: "0.75rem",
+    fontWeight: 400,
+  },
+  $title1: {
+    fontFamily: "Arial",
+    lineHeight: 1,
+    fontSize: "2.5rem",
+    fontWeight: 700,
+  },
+  $title2: {
+    fontFamily: "Arial",
+    lineHeight: 1,
+    fontSize: "1.5rem",
+    fontWeight: 700,
+  },
+};
 
 export const { styled, css, theme, global, getCssString } = createCss({
   theme: {
-    fonts: {
-      $system: "system-ui",
-    },
     colors: {
       text: "#222",
       primary: "hsl(133, 35%, 10%)",
@@ -42,7 +69,7 @@ export const { styled, css, theme, global, getCssString } = createCss({
 
   utils: {
     // @ts-ignore
-    typography,
+    typography: () => (v: TypographyVariantVar) => typography[v],
   },
 
   conditions: {
