@@ -15,14 +15,8 @@ const StyledSpacer = styled("div", {
       $$size: `$space${value}`,
     })),
     axis: {
-      x: {
-        width: "calc($$size * 1px)",
-        height: "0px",
-      },
-      y: {
-        height: "calc($$size * 1px)",
-        width: "0px",
-      },
+      x: { width: "$$size", height: "0px" },
+      y: { height: "$$size", width: "0px" },
     },
   },
 });

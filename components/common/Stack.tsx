@@ -1,15 +1,9 @@
 import { styled } from "@styles/styled";
 import { themeProp } from "@styles/utils";
 
-type Props = React.ComponentProps<typeof StyledStack>;
-
-export function Stack({ children, ...props }: Props) {
-  return <StyledStack {...props}>{children}</StyledStack>;
-}
-
 const childSpacing = "& > *:not([data-spacer]) + *:not([data-spacer])";
 
-const StyledStack = styled("div", {
+export const Stack = styled("div", {
   $$spacing: "$space$normal",
   display: "flex",
   variants: {
@@ -19,19 +13,42 @@ const StyledStack = styled("div", {
     axis: {
       x: {
         flexDirection: "row",
-        [childSpacing]: { margin: "0 0 0 calc($$spacing * 1px)" },
+        [childSpacing]: { margin: "0 0 0 $$spacing" },
       },
       y: {
         flexDirection: "column",
-        [childSpacing]: { margin: "calc($$spacing * 1px) 0 0 0" },
+        [childSpacing]: { margin: "$$spacing 0 0 0" },
       },
       xReverse: {
         flexDirection: "row-reverse",
-        [childSpacing]: { margin: "0 calc($$spacing * 1px) 0 0" },
+        [childSpacing]: { margin: "0 $$spacing 0 0" },
       },
       yReverse: {
         flexDirection: "column-reverse",
-        [childSpacing]: { margin: "0 0 calc($$spacing * 1px) 0" },
+        [childSpacing]: { margin: "0 0 $$spacing 0" },
+      },
+    },
+    align: {
+      start: { alignItems: "flex-start" },
+      end: { alignItems: "flex-end" },
+      center: { alignItems: "center" },
+      stretch: { alignItems: "stretch" },
+      baseline: { alignItems: "baseline" },
+    },
+    justify: {
+      start: { justifyContent: "flex-start" },
+      end: { justifyContent: "flex-end" },
+      center: { justifyContent: "center" },
+      stretch: { justifyContent: "stretch" },
+      around: { justifyContent: "space-around" },
+      between: { justifyContent: "space-between" },
+      evenly: { justifyContent: "space-evenly" },
+    },
+    wrap: {
+      true: {
+        flexWrap: "wrap",
+        margin: "calc($$spacing / -2)",
+        "> *": { margin: "calc($$spacing / 2) !important" },
       },
     },
   },

@@ -1,7 +1,7 @@
 import { theme } from "./styled";
 
 type Theme = typeof theme;
-type ThemeKey = keyof typeof theme;
+type ThemeKey = keyof Theme;
 
 export function themeProp<P extends string, T extends ThemeKey>(
   prop: P,
@@ -9,8 +9,7 @@ export function themeProp<P extends string, T extends ThemeKey>(
   getStyles: (token: string) => any
 ) {
   return Object.values(theme[themeKey]).reduce(
-    (acc, val) => {
-      const token = val.token as keyof Theme[T];
+    (acc, { token }) => {
       acc[prop][token] = getStyles(`$${token}`);
       return acc;
     },
