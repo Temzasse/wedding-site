@@ -33,7 +33,9 @@ const StyledText = styled("p", {
   color: "$text",
   typography: "$body",
   variants: {
-    ...themeProp("color", "colors", (color) => ({ color })),
+    ...themeProp("color", "colors", (value) => ({
+      color: value,
+    })),
     variant: {
       body: { typography: "$body" },
       bodySmall: { typography: "$bodySmall" },
