@@ -31,7 +31,6 @@ const StyledText = styled("p", {
   maxWidth: "100%",
   margin: "0px",
   color: "$text",
-  typography: "$body",
   variants: {
     ...themeProp("color", "colors", (value) => ({
       color: value,
@@ -47,5 +46,8 @@ const StyledText = styled("p", {
       right: { textAlign: "right" },
       center: { textAlign: "center" },
     },
+  },
+  defaultVariants: {
+    variant: "body",
   },
 });

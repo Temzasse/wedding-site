@@ -52,4 +52,7 @@ export const Stack = styled("div", {
       },
     },
   },
+  defaultVariants: {
+    axis: 'y',
+  }
 });

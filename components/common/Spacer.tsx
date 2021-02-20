@@ -19,4 +19,7 @@ const StyledSpacer = styled("div", {
       y: { height: "$$size", width: "0px" },
     },
   },
+  defaultVariants: {
+    axis: "y",
+  },
 });
