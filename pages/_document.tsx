@@ -9,6 +9,15 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@400;500&display=swap"
+            rel="stylesheet"
+          />
           <style id="stitches" dangerouslySetInnerHTML={{ __html: styles }} />
         </Head>
         <body>

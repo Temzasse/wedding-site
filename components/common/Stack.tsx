@@ -1,5 +1,5 @@
 import { styled } from "@styles/styled";
-import { themeProp } from "@styles/utils";
+import { themeProp } from "@styles/helpers";
 
 const childSpacing = "& > *:not([data-spacer]) + *:not([data-spacer])";
 

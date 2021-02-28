@@ -1,5 +1,5 @@
 import { styled } from "@styles/styled";
-import { themeProp } from "@styles/utils";
+import { themeProp } from "@styles/helpers";
 
 type Props = React.ComponentProps<typeof StyledText> & {
   as?: any;
@@ -28,7 +28,7 @@ const variantToTag = {
 };
 
 const StyledText = styled("p", {
-  maxWidth: "100%",
+  maxWidth: "70ch",
   margin: "0px",
   color: "$text",
   variants: {

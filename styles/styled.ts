@@ -1,54 +1,25 @@
-import type { CSSProperties } from "react";
 import { createCss } from "@stitches/react";
 
-type TypographyVariant = "body" | "bodySmall" | "title1" | "title2";
-type TypographyVariantVar = `$${TypographyVariant}`;
-
-const typography: { [variant in TypographyVariantVar]: CSSProperties } = {
-  $body: {
-    fontFamily: "Arial",
-    lineHeight: 1.4,
-    fontSize: "1rem",
-    fontWeight: 400,
-  },
-  $bodySmall: {
-    fontFamily: "Arial",
-    lineHeight: 1.2,
-    fontSize: "0.75rem",
-    fontWeight: 400,
-  },
-  $title1: {
-    fontFamily: "Arial",
-    lineHeight: 1,
-    fontSize: "2.5rem",
-    fontWeight: 700,
-  },
-  $title2: {
-    fontFamily: "Arial",
-    lineHeight: 1,
-    fontSize: "1.5rem",
-    fontWeight: 700,
-  },
-};
+import {
+  typography,
+  paddingHorizontal,
+  paddingVertical,
+  margingHorizontal,
+  size,
+} from "./utils";
 
 export const { styled, css, theme, global, getCssString } = createCss({
   theme: {
     colors: {
-      text: "#222",
+      text: "#333",
+      white: "#fff",
       primary: "hsl(133, 35%, 10%)",
-      primaryLight: "hsl(133, 35%, 30%)",
-      primaryLighter: "hsl(133, 35%, 70%)",
-      primaryLightest: "hsl(133, 35%, 90%)",
-      secondary: "hsl(40, 75%, 50%)",
-      secondaryLight: "hsl(40, 75%, 70%)",
-      secondaryLighter: "hsl(40, 75%, 80%)",
-      secondaryLightest: "hsl(40, 75%, 90%)",
-      tertiary: "hsl(359, 70%, 50%)",
-      tertiaryLight: "hsl(359, 70%, 65%)",
-      tertiaryLighter: "hsl(359, 70%, 80%)",
-      tertiaryLightest: "hsl(359, 70%, 90%)",
+      secondary: "hsl(155, 7%, 47%)",
+      tertiary: "hsl(35, 32%, 76%)",
+      tertiaryLight: "hsl(35, 32%, 90%)",
     },
     space: {
+      none: "0px",
       xxsmall: "4px",
       xsmall: "8px",
       small: "12px",
@@ -57,6 +28,7 @@ export const { styled, css, theme, global, getCssString } = createCss({
       large: "32px",
       xlarge: "48px",
       xxlarge: "64px",
+      xxxlarge: "80px",
     },
     radii: {
       small: "4px",
@@ -69,7 +41,11 @@ export const { styled, css, theme, global, getCssString } = createCss({
 
   utils: {
     // @ts-ignore
-    typography: () => (v: TypographyVariantVar) => typography[v],
+    typography,
+    paddingHorizontal,
+    paddingVertical,
+    margingHorizontal,
+    size,
   },
 
   conditions: {
