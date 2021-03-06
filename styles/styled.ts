@@ -12,11 +12,13 @@ export const { styled, css, theme, global, getCssString } = createCss({
   theme: {
     colors: {
       text: "#333",
+      gray: "#888",
       white: "#fff",
       primary: "hsl(133, 35%, 10%)",
       secondary: "hsl(155, 7%, 47%)",
-      tertiary: "hsl(35, 32%, 76%)",
-      tertiaryLight: "hsl(35, 32%, 90%)",
+      tertiary: "hsl(39, 56%, 46%)",
+      // tertiary: "hsl(35, 32%, 76%)",
+      // tertiaryLight: "hsl(35, 32%, 90%)",
     },
     space: {
       none: "0px",
@@ -26,9 +28,9 @@ export const { styled, css, theme, global, getCssString } = createCss({
       normal: "16px",
       medium: "24px",
       large: "32px",
-      xlarge: "48px",
-      xxlarge: "64px",
-      xxxlarge: "80px",
+      xlarge: "56px",
+      xxlarge: "72px",
+      xxxlarge: "120px",
     },
     radii: {
       small: "4px",

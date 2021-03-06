@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { styled } from "@styles/styled";
-import { Text, Button, Stack, Spacer } from "@components/common";
+import { Text, Stack, Spacer } from "@components/common";
+import SignupForm from "@components/SignupForm";
+import { CONTENT_WIDTH, PAGE_WIDTH } from "../constants";
 
 export default function Home() {
   return (
@@ -13,7 +15,7 @@ export default function Home() {
 
       <Content>
         <Header>
-          <Stack align="center" spacing="xlarge">
+          <Stack align="center" spacing="xxxlarge">
             <Stack align="center" spacing="large">
               <div>
                 <Image
@@ -37,7 +39,7 @@ export default function Home() {
             <Nav>
               <NavList>
                 <NavItem>
-                  <NavLink href="#ilmottaudu">Ilmottaudu</NavLink>
+                  <NavLink href="#ilmottaudu">Ilmoittaudu</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="#ilmottaudu">Reittiohjeet</NavLink>
@@ -46,20 +48,94 @@ export default function Home() {
                   <NavLink href="#ilmottaudu">Lisätietoja</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#ilmottaudu">Yhteistiedot</NavLink>
+                  <NavLink href="#ilmottaudu">Yhteystiedot</NavLink>
                 </NavItem>
               </NavList>
             </Nav>
           </Stack>
         </Header>
 
-        <Spacer size="xxlarge" />
+        <Spacer size="xxxlarge" />
 
         <main>
-          <Section>
-            <Stack spacing="xlarge" align="center">
-              <Stack spacing="none" align="center">
-                <Text variant="title2">Tervetuloa</Text>
+          <Stack spacing="xxxlarge">
+            <Section>
+              <Stack spacing="xlarge" align="center">
+                <Stack spacing="large" align="center">
+                  <Text variant="title2">Tervetuloa</Text>
+
+                  <LeafDecoration />
+
+                  <Text variant="body">
+                    Series A financing value proposition handshake
+                    business-to-consumer social proof scrum project release lean
+                    startup innovator seed money user experience. Partner
+                    network vesting period low hanging fruit deployment advisor
+                    equity backing. Partner network graphical user interface
+                    virality disruptive stock.
+                  </Text>
+                </Stack>
+              </Stack>
+
+              <Spacer size="xlarge" />
+
+              <SignupForm />
+            </Section>
+
+            <Section>
+              <Stack spacing="large" align="center">
+                <Text variant="title2">Reittiohjeet</Text>
+
+                <LeafDecoration />
+
+                <div>
+                  <Image
+                    src="/map.jpg"
+                    alt="Karttaohjeet Hirvihaaran kartanolle"
+                    width={PAGE_WIDTH}
+                    height={(500 / 1500) * PAGE_WIDTH}
+                  />
+                </div>
+
+                <Text variant="title3">Hirvihaaran kartano</Text>
+
+                <Spacer size="small" />
+
+                <Text variant="body">Lasipaviljonki</Text>
+
+                <Text variant="body">Kartanonlenkki 56, 04680 Hirvihaara</Text>
+
+                <Text variant="body">
+                  Series A financing value proposition handshake
+                  business-to-consumer social proof scrum project release lean
+                  startup innovator seed money user experience. Partner network
+                  vesting period low hanging fruit deployment advisor equity
+                  backing. Partner network graphical user interface virality
+                  disruptive stock.
+                </Text>
+
+                <Text variant="body">http://hirvihaarankartano.fi/</Text>
+              </Stack>
+            </Section>
+
+            <Section>
+              <Stack spacing="large" align="center">
+                <Text variant="title2">Lisätietoja</Text>
+
+                <LeafDecoration />
+
+                <Text variant="title3">Aikataulu</Text>
+
+                <Text variant="body">
+                  Series A financing value proposition handshake
+                  business-to-consumer social proof scrum project release lean
+                  startup innovator seed money user experience. Partner network
+                  vesting period low hanging fruit deployment advisor equity
+                  backing. Partner network graphical user interface virality
+                  disruptive stock.
+                </Text>
+
+                <Text variant="title3">Give me money</Text>
 
                 <Text variant="body">
                   Series A financing value proposition handshake
@@ -70,32 +146,68 @@ export default function Home() {
                   disruptive stock.
                 </Text>
               </Stack>
+            </Section>
 
-              <Button>Ilmoittaudu</Button>
-            </Stack>
-          </Section>
+            <Section>
+              <Stack spacing="large" align="center">
+                <Text variant="title2">Yhteystiedot</Text>
 
-          <Section>
-            <Text variant="title2">Reittiohjeet</Text>
-          </Section>
+                <LeafDecoration />
 
-          <Section>
-            <Text variant="title2">Lisätietoja</Text>
-          </Section>
+                <Text variant="body">
+                  Series A financing value proposition handshake
+                  business-to-consumer social proof scrum project release lean
+                  startup innovator seed money user experience.
+                </Text>
 
-          <Section>
-            <Text variant="title2">Yhteistiedot</Text>
-          </Section>
+                <Spacer size="xlarge" />
+
+                <div>
+                  <Stack axis="x" spacing="large">
+                    <div>
+                      <Stack spacing="small">
+                        <Text variant="title3">Teemu Taskula</Text>
+                        <Text variant="body">teemu.taskula@taitounited.fi</Text>
+                        <Text variant="body">+358400848728</Text>
+                      </Stack>
+                    </div>
+
+                    <div>
+                      <Stack spacing="small">
+                        <Text variant="title3">Milka Nissinen</Text>
+                        <Text variant="body">milkamarianne@gmail.com</Text>
+                        <Text variant="body">+358445758980</Text>
+                      </Stack>
+                    </div>
+                  </Stack>
+                </div>
+              </Stack>
+            </Section>
+          </Stack>
         </main>
 
-        <footer>Footer here</footer>
+        <Spacer size="xxxlarge" />
+
+        <Footer>
+          <Image
+            src="/logo_white.png"
+            alt="Teemun ja Milkan alkukirjaimet"
+            width={120}
+            height={120}
+          />
+        </Footer>
       </Content>
     </Page>
   );
 }
 
-const PAGE_WIDTH = 1400;
-const CONTENT_WIDTH = 800;
+function LeafDecoration() {
+  return (
+    <div>
+      <Image src="/branch.png" alt="" width={150} height={70} />
+    </div>
+  );
+}
 
 const Page = styled("div", {
   width: "100%",
@@ -106,9 +218,10 @@ const Content = styled("div", {
   width: "100%",
   maxWidth: `${PAGE_WIDTH}px`,
   margingHorizontal: "auto",
-  padding: "$xlarge",
-  paddingTop: "500px",
+  paddingTop: "300px",
   backgroundColor: "#fff",
+  boxShadow: "0px 0px 24px rgb(0, 0, 0, 0.05)",
+  overflow: "hidden",
 
   "&::before": {
     content: `""`,
@@ -116,44 +229,13 @@ const Content = styled("div", {
     position: "absolute",
     top: "0px",
     left: "0px",
-    width: "2000px",
-    height: "2000px",
-    backgroundImage: 'url("decoration_1.png")',
-    backgroundPosition: "0px 0px",
-    backgroundSize: "100%",
+    right: "0px",
+    height: "500px",
+    backgroundImage: 'url("leafs.png")',
+    backgroundPosition: "top",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    transform: "translate(-18%, -65%) rotate(10deg)",
-    filter: "brightness(0.8)",
   },
-
-  // "&::before": {
-  //   content: `""`,
-  //   display: "block",
-  //   position: "absolute",
-  //   top: "0px",
-  //   left: "0px",
-  //   width: "1200px",
-  //   height: "1200px",
-  //   backgroundImage: 'url("decoration_1.png")',
-  //   backgroundPosition: "0px 0px",
-  //   backgroundSize: "100%",
-  //   backgroundRepeat: "no-repeat",
-  //   transform: "translate(-55%, -55%) rotate(-30deg)",
-  // },
-  // "&::after": {
-  //   content: `""`,
-  //   display: "block",
-  //   position: "absolute",
-  //   top: "0px",
-  //   right: "0px",
-  //   width: "1200px",
-  //   height: "1200px",
-  //   backgroundImage: 'url("decoration_1.png")',
-  //   backgroundPosition: "0px 0px",
-  //   backgroundSize: "100%",
-  //   backgroundRepeat: "no-repeat",
-  //   transform: "translate(55%, -60%) rotate(20deg)",
-  // },
 });
 
 const Header = styled("header", {
@@ -164,7 +246,6 @@ const Header = styled("header", {
 });
 
 const Section = styled("section", {
-  minHeight: "50vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -177,8 +258,8 @@ const Nav = styled("nav", {
   margingHorizontal: "auto",
   borderTop: "1px solid",
   borderBottom: "1px solid",
-  borderColor: "#eee",
-  padding: "$small 0px",
+  borderColor: "$secondary",
+  padding: "$small",
 });
 
 const NavList = styled("ul", {
@@ -193,4 +274,13 @@ const NavLink = styled("a", {
   typography: "$navLink",
   textDecoration: "none",
   color: "$primary",
+});
+
+const Footer = styled("footer", {
+  width: "100%",
+  minHeight: "300px",
+  backgroundColor: "$secondary",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 });

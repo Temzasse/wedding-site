@@ -25,6 +25,7 @@ const variantToTag = {
   bodySmall: "p",
   title1: "h1",
   title2: "h2",
+  title3: "h3",
 };
 
 const StyledText = styled("p", {
@@ -40,6 +41,7 @@ const StyledText = styled("p", {
       bodySmall: { typography: "$bodySmall" },
       title1: { typography: "$title1" },
       title2: { typography: "$title2" },
+      title3: { typography: "$title3" },
     },
     align: {
       left: { textAlign: "left" },

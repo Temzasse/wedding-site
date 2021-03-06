@@ -6,31 +6,31 @@ type TypographyVariant =
   | "button"
   | "title1"
   | "title2"
+  | "title3"
   | "navLink";
 
 type TypographyVariantVar = `$${TypographyVariant}`;
 
 const rem = (px: number) => `${px / 16}rem`;
 
-const leafDecoration = {
-  paddingBottom: "100px",
-  position: "relative",
-  "&::after": {
-    content: `""`,
-    display: "block",
-    position: "absolute",
-    bottom: "0px",
-    left: "-32px",
-    right: "-32px",
-    height: "100px",
-    backgroundImage: 'url("leaf_1.png")',
-    backgroundPosition: "0px 0px",
-    backgroundSize: "100%",
-    backgroundRepeat: "no-repeat",
-    transform: "rotate(4deg)",
-    opacity: 0.5,
-  },
-} as any;
+// const decorationHeight = 70;
+// const leafDecoration = {
+//   paddingBottom: `${decorationHeight}px`,
+//   position: "relative",
+//   "&::after": {
+//     content: `""`,
+//     display: "block",
+//     position: "absolute",
+//     bottom: "0px",
+//     left: "16px",
+//     right: "16px",
+//     height: `${decorationHeight}px`,
+//     backgroundImage: 'url("branch.png")',
+//     backgroundPosition: "0px 0px",
+//     backgroundSize: "100% 100%",
+//     backgroundRepeat: "no-repeat",
+//   },
+// } as any;
 
 const typographyVariants: {
   [variant in TypographyVariantVar]: CSSProperties;
@@ -53,15 +53,21 @@ const typographyVariants: {
     lineHeight: 1,
     fontSize: rem(64),
     fontWeight: 700,
-    color: "$primary",
+    color: "$tertiary",
   },
   $title2: {
     fontFamily: '"Playfair Display", serif',
     lineHeight: 1,
     fontSize: rem(48),
     fontWeight: 400,
+    color: "$tertiary",
+  },
+  $title3: {
+    fontFamily: '"Playfair Display", serif',
+    lineHeight: 1,
+    fontSize: rem(24),
+    fontWeight: 500,
     color: "$primary",
-    ...leafDecoration,
   },
   $button: {
     fontFamily: '"Playfair Display", serif',
