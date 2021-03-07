@@ -9,6 +9,9 @@ export default class Document extends NextDocument {
     return (
       <Html lang="fi">
         <Head>
+          {/* Block robots */}
+          <meta name="robots" content="noindex" />
+
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" href="/favicon_32x32.png" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -20,6 +23,7 @@ export default class Document extends NextDocument {
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@400;500&display=swap"
             rel="stylesheet"
           />
+
           <style id="stitches" dangerouslySetInnerHTML={{ __html: styles }} />
         </Head>
         <body>
