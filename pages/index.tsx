@@ -1,8 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
+import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
 import { Text, Stack, Spacer } from "@components/common";
 import SignupForm from "@components/SignupForm";
+import logoImg from "../images/logo.png";
+import logoWhiteImg from "../images/logo_white.png";
+import teemuMilkaImg from "../images/teemu_milka.png";
+import mapImg from "../images/map.png";
+import branchImg from "../images/branch.png";
+import leafsImg from "../images/leafs.png";
 import { CONTENT_WIDTH, PAGE_WIDTH } from "../constants";
 
 export default function Home() {
@@ -10,28 +16,33 @@ export default function Home() {
     <Page>
       <Head>
         <title>Teemu & Milka</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Content>
         <Header>
+          <HeaderDecoration>
+            <Img src={leafsImg} />
+          </HeaderDecoration>
+
           <Stack align="center" spacing="xxxlarge">
             <Stack align="center" spacing="large">
               <div>
-                <Image
-                  src="/logo.png"
+                <Img
+                  src={logoImg}
                   alt="Teemun ja Milkan alkukirjaimet"
                   width={120}
                   height={120}
+                  webp
                 />
               </div>
 
               <div>
-                <Image
-                  src="/teemu_milka.png"
+                <Img
+                  src={teemuMilkaImg}
                   alt="Teemu ja Milka"
                   width={720 * 1.2}
                   height={130 * 1.2}
+                  webp
                 />
               </div>
             </Stack>
@@ -42,13 +53,13 @@ export default function Home() {
                   <NavLink href="#ilmottaudu">Ilmoittaudu</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#ilmottaudu">Reittiohjeet</NavLink>
+                  <NavLink href="#reittiohjeet">Reittiohjeet</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#ilmottaudu">Lisätietoja</NavLink>
+                  <NavLink href="#lisatietoja">Lisätietoja</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#ilmottaudu">Yhteystiedot</NavLink>
+                  <NavLink href="#yhteystiedot">Yhteystiedot</NavLink>
                 </NavItem>
               </NavList>
             </Nav>
@@ -62,7 +73,9 @@ export default function Home() {
             <Section>
               <Stack spacing="xlarge" align="center">
                 <Stack spacing="large" align="center">
-                  <Text variant="title2">Tervetuloa</Text>
+                  <Text variant="title2" id="ilmottaudu">
+                    Tervetuloa
+                  </Text>
 
                   <LeafDecoration />
 
@@ -84,16 +97,19 @@ export default function Home() {
 
             <Section>
               <Stack spacing="large" align="center">
-                <Text variant="title2">Reittiohjeet</Text>
+                <Text variant="title2" id="reittiohjeet">
+                  Reittiohjeet
+                </Text>
 
                 <LeafDecoration />
 
                 <div>
-                  <Image
-                    src="/map.jpg"
+                  <Img
+                    src={mapImg}
                     alt="Karttaohjeet Hirvihaaran kartanolle"
                     width={PAGE_WIDTH}
                     height={(500 / 1500) * PAGE_WIDTH}
+                    webp
                   />
                 </div>
 
@@ -120,7 +136,9 @@ export default function Home() {
 
             <Section>
               <Stack spacing="large" align="center">
-                <Text variant="title2">Lisätietoja</Text>
+                <Text variant="title2" id="lisatietoja">
+                  Lisätietoja
+                </Text>
 
                 <LeafDecoration />
 
@@ -150,7 +168,9 @@ export default function Home() {
 
             <Section>
               <Stack spacing="large" align="center">
-                <Text variant="title2">Yhteystiedot</Text>
+                <Text variant="title2" id="yhteystiedot">
+                  Yhteystiedot
+                </Text>
 
                 <LeafDecoration />
 
@@ -189,11 +209,12 @@ export default function Home() {
         <Spacer size="xxxlarge" />
 
         <Footer>
-          <Image
-            src="/logo_white.png"
+          <Img
+            src={logoWhiteImg}
             alt="Teemun ja Milkan alkukirjaimet"
             width={120}
             height={120}
+            webp
           />
         </Footer>
       </Content>
@@ -204,7 +225,7 @@ export default function Home() {
 function LeafDecoration() {
   return (
     <div>
-      <Image src="/branch.png" alt="" width={150} height={70} />
+      <Img src={branchImg} alt="" width={150} height={70} webp />
     </div>
   );
 }
@@ -222,20 +243,6 @@ const Content = styled("div", {
   backgroundColor: "#fff",
   boxShadow: "0px 0px 24px rgb(0, 0, 0, 0.05)",
   overflow: "hidden",
-
-  "&::before": {
-    content: `""`,
-    display: "block",
-    position: "absolute",
-    top: "0px",
-    left: "0px",
-    right: "0px",
-    height: "500px",
-    backgroundImage: 'url("leafs.png")',
-    backgroundPosition: "top",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-  },
 });
 
 const Header = styled("header", {
@@ -283,4 +290,16 @@ const Footer = styled("footer", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+});
+
+const HeaderDecoration = styled("div", {
+  position: "absolute",
+  top: "0px",
+  left: "0px",
+  right: "0px",
+  height: "500px",
+  "& > img": {
+    width: "100%",
+    objectFit: "contain",
+  },
 });

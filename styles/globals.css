@@ -3,9 +3,11 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100%;
-  background-color: #E3EAE4;
+  background-color: #f0f5ef;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
