@@ -58,153 +58,164 @@ export default function SignupForm() {
 
   return (
     <Wrapper open={isOpen}>
-      {isOpen ? (
-        <FormWrapper>
-          <Form
-            autoComplete="on"
-            name="signup"
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="signup" />
+      {!isOpen && <Button onClick={() => setOpen(true)}>Ilmoittaudu</Button>}
 
-            <div hidden>
-              <label>
-                Don’t fill this out:
-                <input name="bot-field" onChange={handleInputChange} />
-              </label>
-            </div>
+      <FormWrapper open={isOpen}>
+        <Form
+          autoComplete="on"
+          name="signup"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="signup" />
 
-            <Stack spacing="medium" align="start">
-              <Text variant="title3" color="white">
-                Pääsetkö mukaan?
+          <div hidden>
+            <label>
+              Don’t fill this out:
+              <input name="bot-field" onChange={handleInputChange} />
+            </label>
+          </div>
+
+          <Stack spacing="medium" align="start">
+            <Text variant="title3" color="white">
+              Pääsetkö mukaan?
+            </Text>
+
+            <Spacer size="large" />
+
+            <Stack axis="x" spacing="large">
+              <RadioLabel>
+                <Text variant="body" color="white">
+                  Kyllä
+                </Text>
+
+                <RadioInput
+                  required
+                  name="attending"
+                  type="radio"
+                  value="yes"
+                  checked={formValues.attending === "yes"}
+                  onChange={handleInputChange}
+                />
+
+                <RadioMark checked={formValues.attending === "yes"} />
+              </RadioLabel>
+
+              <RadioLabel>
+                <Text variant="body" color="white">
+                  Ei
+                </Text>
+
+                <RadioInput
+                  required
+                  name="attending"
+                  type="radio"
+                  value="no"
+                  checked={formValues.attending === "no"}
+                  onChange={handleInputChange}
+                />
+
+                <RadioMark checked={formValues.attending === "no"} />
+              </RadioLabel>
+            </Stack>
+
+            <Label>
+              <Text variant="body" color="white">
+                Nimi (pakollinen)
               </Text>
 
-              <Spacer size="large" />
+              <Input
+                required
+                type="text"
+                name="name"
+                value={formValues.name}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-              <Stack axis="x" spacing="large">
-                <RadioLabel>
-                  <Text variant="body" color="white">
-                    Kyllä
-                  </Text>
+            <Label>
+              <Text variant="body" color="white">
+                Puhelinnumero
+              </Text>
 
-                  <RadioInput
-                    required
-                    name="attending"
-                    type="radio"
-                    value="yes"
-                    checked={formValues.attending === "yes"}
-                    onChange={handleInputChange}
-                  />
+              <Input
+                name="phone"
+                type="tel"
+                value={formValues.phone}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-                  <RadioMark checked={formValues.attending === "yes"} />
-                </RadioLabel>
+            <Label>
+              <Text variant="body" color="white">
+                Sähköposti
+              </Text>
 
-                <RadioLabel>
-                  <Text variant="body" color="white">
-                    Ei
-                  </Text>
+              <Input
+                name="email"
+                type="email"
+                value={formValues.email}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-                  <RadioInput
-                    required
-                    name="attending"
-                    type="radio"
-                    value="no"
-                    checked={formValues.attending === "no"}
-                    onChange={handleInputChange}
-                  />
+            <Label>
+              <Text variant="body" color="white">
+                Ilmoitan samalla myös
+              </Text>
 
-                  <RadioMark checked={formValues.attending === "no"} />
-                </RadioLabel>
-              </Stack>
+              <TextArea
+                rows={4}
+                name="description"
+                placeholder={`Kirjoita tähän kaikki kutsussa mainitut perheenjäsenesi tai kumppanisi, jotka haluat ilmoittaa samalla. Esim. "Sampo, Kari, ja Johanna."`}
+                value={formValues.description}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-              <Label>
-                <Text variant="body" color="white">
-                  Nimi (pakollinen)
-                </Text>
+            <Label>
+              <Text variant="body" color="white">
+                Erikoisruokavalio
+              </Text>
 
-                <Input
-                  required
-                  type="text"
-                  name="name"
-                  value={formValues.name}
-                  onChange={handleInputChange}
-                />
-              </Label>
+              <TextArea
+                rows={2}
+                name="diet"
+                value={formValues.diet}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-              <Label>
-                <Text variant="body" color="white">
-                  Puhelinnumero
-                </Text>
+            <Label>
+              <Text variant="body" color="white">
+                Muuta
+              </Text>
 
-                <Input
-                  name="phone"
-                  type="tel"
-                  value={formValues.phone}
-                  onChange={handleInputChange}
-                />
-              </Label>
+              <TextArea
+                rows={2}
+                name="other"
+                value={formValues.other}
+                onChange={handleInputChange}
+              />
+            </Label>
 
-              <Label>
-                <Text variant="body" color="white">
-                  Sähköposti
-                </Text>
+            <Spacer size="xlarge" />
 
-                <Input
-                  name="email"
-                  type="email"
-                  value={formValues.email}
-                  onChange={handleInputChange}
-                />
-              </Label>
-
-              <Label>
-                <Text variant="body" color="white">
-                  Ilmoitan samalla myös
-                </Text>
-
-                <TextArea
-                  rows={4}
-                  name="description"
-                  placeholder={`Kirjoita tähän kaikki kutsussa mainitut perheenjäsenesi tai kumppanisi, jotka haluat ilmoittaa samalla. Esim. "Sampo, Kari, ja Johanna."`}
-                  value={formValues.description}
-                  onChange={handleInputChange}
-                />
-              </Label>
-
-              <Label>
-                <Text variant="body" color="white">
-                  Muuta
-                </Text>
-
-                <TextArea
-                  rows={2}
-                  name="other"
-                  value={formValues.other}
-                  onChange={handleInputChange}
-                />
-              </Label>
-
-              <Spacer size="xlarge" />
-
-              <Button
-                type="submit"
-                variant="outlineLight"
-                css={{
-                  alignSelf: "center",
-                  minWidth: "200px",
-                }}
-              >
-                Lähetä
-              </Button>
-            </Stack>
-          </Form>
-        </FormWrapper>
-      ) : (
-        <Button onClick={() => setOpen(true)}>Ilmoittaudu</Button>
-      )}
+            <Button
+              type="submit"
+              variant="outlineLight"
+              css={{
+                alignSelf: "center",
+                minWidth: "200px",
+              }}
+            >
+              Lähetä
+            </Button>
+          </Stack>
+        </Form>
+      </FormWrapper>
 
       {isSubmitted && (
         <SubmissionSuccessful>
@@ -248,6 +259,7 @@ function encode(data: any) {
 const Wrapper = styled("div", {
   position: "relative",
   width: "100%",
+
   variants: {
     open: {
       true: {
@@ -268,6 +280,18 @@ const FormWrapper = styled("div", {
   paddingTop: "$xlarge",
   paddingBottom: "$xxlarge",
   boxShadow: "inset 0px 0px 24px rgba(0,0,0,0.1)",
+
+  variants: {
+    open: {
+      true: {
+        visibility: "visible",
+      },
+      false: {
+        visibility: "hidden",
+        pointerEvents: "none",
+      },
+    },
+  },
 });
 
 const Form = styled("form", {
