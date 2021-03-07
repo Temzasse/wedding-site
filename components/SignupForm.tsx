@@ -15,6 +15,7 @@ const initialValues = {
 
 export default function SignupForm() {
   const [isOpen, setOpen] = React.useState(false);
+  const [isSubmitted, setSubmitted] = React.useState(false);
   const [formValues, setFormValues] = React.useState(initialValues);
 
   function handleInputChange(event: any) {
@@ -24,11 +25,58 @@ export default function SignupForm() {
     setFormValues((p) => ({ ...p, [name]: value } as any));
   }
 
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+    const form = event.target;
+
+    if (process.env.NODE_ENV === "development") {
+      console.log({ formValues });
+      setSubmitted(true);
+    } else {
+      try {
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": form.getAttribute("name"),
+            ...formValues,
+          }),
+        });
+
+        if (res.ok) setSubmitted(true);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+  function handleDone() {
+    setSubmitted(false);
+    setOpen(false);
+    setFormValues(initialValues);
+  }
+
   return (
     <Wrapper open={isOpen}>
       {isOpen ? (
         <FormWrapper>
-          <Form autoComplete="on">
+          <Form
+            autoComplete="on"
+            name="signup"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="form-name" value="signup" />
+
+            <div hidden>
+              <label>
+                Don’t fill this out:
+                <input name="bot-field" onChange={handleInputChange} />
+              </label>
+            </div>
+
             <Stack spacing="medium" align="start">
               <Text variant="title3" color="white">
                 Pääsetkö mukaan?
@@ -43,6 +91,7 @@ export default function SignupForm() {
                   </Text>
 
                   <RadioInput
+                    required
                     name="attending"
                     type="radio"
                     value="yes"
@@ -59,6 +108,7 @@ export default function SignupForm() {
                   </Text>
 
                   <RadioInput
+                    required
                     name="attending"
                     type="radio"
                     value="no"
@@ -76,6 +126,8 @@ export default function SignupForm() {
                 </Text>
 
                 <Input
+                  required
+                  type="text"
                   name="name"
                   value={formValues.name}
                   onChange={handleInputChange}
@@ -153,11 +205,48 @@ export default function SignupForm() {
       ) : (
         <Button onClick={() => setOpen(true)}>Ilmoittaudu</Button>
       )}
+
+      {isSubmitted && (
+        <SubmissionSuccessful>
+          <SubmissionSuccessfulContent>
+            <Stack spacing="large">
+              <Stack spacing="normal">
+                <Text variant="title3" as="p" color="white" align="center">
+                  Lähetetty!
+                </Text>
+
+                <Text variant="body" color="white" align="center">
+                  Kiitos vastauksesta
+                  {formValues.attending && (
+                    <>
+                      {","}
+                      <br />
+                      {"nähdään joulukuussa"}
+                    </>
+                  )}{" "}
+                  ♥️
+                </Text>
+              </Stack>
+
+              <Button variant="outlineLight" onClick={handleDone}>
+                Sulje
+              </Button>
+            </Stack>
+          </SubmissionSuccessfulContent>
+        </SubmissionSuccessful>
+      )}
     </Wrapper>
   );
 }
 
+function encode(data: any) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 const Wrapper = styled("div", {
+  position: "relative",
   width: "100%",
   variants: {
     open: {
@@ -284,4 +373,33 @@ const TextArea = styled("textarea", {
   "&:focus": {
     boxShadow: "0px 0px 0px 4px rgba(0,0,0,0.1)",
   },
+});
+
+const fadeIn = keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+});
+
+const scaleUp = keyframes({
+  from: { transform: "scale(0)", opacity: 0 },
+  to: { transform: "scale(1)", opacity: 1 },
+});
+
+const SubmissionSuccessful = styled("div", {
+  absoluteFill: true,
+  flexCenter: true,
+  backdropFilter: "blur(12px) brightness(0.9)",
+  opacity: 0,
+  animation: `${fadeIn} linear 100ms forwards`,
+});
+
+const SubmissionSuccessfulContent = styled("div", {
+  paddingVertical: "$xlarge",
+  paddingHorizontal: "$xlarge",
+  borderRadius: "12px",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  transform: "scale(0)",
+  opacity: 0,
+  animation: `${scaleUp} ease 100ms forwards`,
+  animationDelay: "500ms",
 });
