@@ -4,8 +4,8 @@ import { styled } from "@styles/styled";
 import { Text, Stack, Spacer, Link } from "@components/common";
 import SignupForm from "@components/SignupForm";
 import Navbar from "@components/Navbar";
+import Footer from "@components/Footer";
 import logoImg from "../images/logo.png";
-import logoWhiteImg from "../images/logo_white.png";
 import teemuMilkaImg from "../images/teemu_milka.png";
 import mapImg from "../images/map.png";
 import branchImg from "../images/branch.png";
@@ -222,15 +222,7 @@ export default function Home() {
 
         <Spacer size="xxxlarge" />
 
-        <Footer>
-          <Img
-            src={logoWhiteImg}
-            alt="Teemun ja Milkan alkukirjaimet"
-            width={120}
-            height={120}
-            webp
-          />
-        </Footer>
+        <Footer />
       </Content>
     </Page>
   );
@@ -267,15 +259,6 @@ const Section = styled("section", {
   flexDirection: "column",
   alignItems: "center",
   textAlign: "center",
-});
-
-const Footer = styled("footer", {
-  width: "100%",
-  minHeight: "300px",
-  backgroundColor: "$secondary",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
 });
 
 const HeaderDecoration = styled("div", {
