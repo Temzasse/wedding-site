@@ -28,19 +28,25 @@ export default function SignupForm() {
   async function handleSubmit(event: any) {
     event.preventDefault();
     const form = event.target;
+    const botField = document.getElementById("bot-field") as any;
+    const values = {
+      "form-name": form.getAttribute("name"),
+      ...formValues,
+    };
+
+    if (botField && botField.value) {
+      values["bot-field"] = botField.value;
+    }
 
     if (process.env.NODE_ENV === "development") {
-      console.log({ formValues });
+      console.log({ values });
       setSubmitted(true);
     } else {
       try {
         const res = await fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({
-            "form-name": form.getAttribute("name"),
-            ...formValues,
-          }),
+          body: encode(values),
         });
 
         if (res.ok) setSubmitted(true);
@@ -71,10 +77,10 @@ export default function SignupForm() {
         >
           <input type="hidden" name="form-name" value="signup" />
 
-          <div hidden>
+          <div className="visually-hidden" hidden>
             <label>
               Don’t fill this out:
-              <input name="bot-field" onChange={handleInputChange} />
+              <input id="bot-field" name="bot-field" />
             </label>
           </div>
 
@@ -163,20 +169,6 @@ export default function SignupForm() {
 
             <Label>
               <Text variant="body" color="white">
-                Ilmoitan samalla myös
-              </Text>
-
-              <TextArea
-                rows={4}
-                name="description"
-                placeholder={`Kirjoita tähän kaikki kutsussa mainitut perheenjäsenesi tai kumppanisi, jotka haluat ilmoittaa samalla. Esim. "Sampo, Kari, ja Johanna."`}
-                value={formValues.description}
-                onChange={handleInputChange}
-              />
-            </Label>
-
-            <Label>
-              <Text variant="body" color="white">
                 Erikoisruokavalio
               </Text>
 
@@ -184,6 +176,20 @@ export default function SignupForm() {
                 rows={2}
                 name="diet"
                 value={formValues.diet}
+                onChange={handleInputChange}
+              />
+            </Label>
+
+            <Label>
+              <Text variant="body" color="white">
+                Ilmoitan itseni lisäksi myös
+              </Text>
+
+              <TextArea
+                rows={4}
+                name="description"
+                placeholder={`Kirjoita tähän kaikki kutsussa mainitut perheenjäsenesi tai kumppanisi, jotka haluat ilmoittaa samalla. Esim. "Sampo, Kari, ja Johanna."`}
+                value={formValues.description}
                 onChange={handleInputChange}
               />
             </Label>
