@@ -110,3 +110,17 @@ export const size = () => (value: any) => ({
   width: value,
   height: value,
 });
+
+export const absoluteFill = () => (value: any) => ({
+  position: "absolute",
+  top: "0px",
+  right: "0px",
+  bottom: "0px",
+  left: "0px",
+});
+
+export const flexCenter = () => (value: any) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});

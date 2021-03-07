@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "@styles/styled";
+import { styled, keyframes } from "@styles/styled";
 import { Text, Button, Stack, Spacer } from "@components/common";
 import { FORM_WIDTH } from "../constants";
 
@@ -14,7 +14,7 @@ const initialValues = {
 };
 
 export default function SignupForm() {
-  const [isOpen, setOpen] = React.useState(true);
+  const [isOpen, setOpen] = React.useState(false);
   const [formValues, setFormValues] = React.useState(initialValues);
 
   function handleInputChange(event: any) {
@@ -25,7 +25,7 @@ export default function SignupForm() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper open={isOpen}>
       {isOpen ? (
         <FormWrapper>
           <Form autoComplete="on">
@@ -159,6 +159,18 @@ export default function SignupForm() {
 
 const Wrapper = styled("div", {
   width: "100%",
+  variants: {
+    open: {
+      true: {
+        transition: "max-height 2000ms ease",
+        overflow: "hidden",
+        maxHeight: "9999px",
+      },
+      false: {
+        maxHeight: "0px",
+      },
+    },
+  },
 });
 
 const FormWrapper = styled("div", {
@@ -245,12 +257,12 @@ const Input = styled("input", {
   width: "100%",
   marginTop: "$xsmall",
   padding: "$normal",
-  outline: "none",
+  outline: "none !important",
   borderRadius: "2px",
   typography: "$body",
 
   "&:focus": {
-    boxShadow: "0px 0px 0px 4px rgba(0,0,0,0.1)",
+    boxShadow: "0px 0px 0px 4px rgba(0,0,0,0.2)",
   },
 });
 

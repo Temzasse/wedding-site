@@ -3,13 +3,14 @@ import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
 import { Text, Stack, Spacer } from "@components/common";
 import SignupForm from "@components/SignupForm";
+import Navbar from "@components/Navbar";
 import logoImg from "../images/logo.png";
 import logoWhiteImg from "../images/logo_white.png";
 import teemuMilkaImg from "../images/teemu_milka.png";
 import mapImg from "../images/map.png";
 import branchImg from "../images/branch.png";
 import leafsImg from "../images/leafs.png";
-import { CONTENT_WIDTH, PAGE_WIDTH } from "../constants";
+import { PAGE_WIDTH } from "../constants";
 
 export default function Home() {
   return (
@@ -40,29 +41,14 @@ export default function Home() {
                 <Img
                   src={teemuMilkaImg}
                   alt="Teemu ja Milka"
-                  width={720 * 1.2}
-                  height={130 * 1.2}
+                  width={864}
+                  height={156}
                   webp
                 />
               </div>
             </Stack>
 
-            <Nav>
-              <NavList>
-                <NavItem>
-                  <NavLink href="#ilmottaudu">Ilmoittaudu</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#reittiohjeet">Reittiohjeet</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#lisatietoja">Lisätietoja</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#yhteystiedot">Yhteystiedot</NavLink>
-                </NavItem>
-              </NavList>
-            </Nav>
+            <Navbar />
           </Stack>
         </Header>
 
@@ -108,7 +94,7 @@ export default function Home() {
                     src={mapImg}
                     alt="Karttaohjeet Hirvihaaran kartanolle"
                     width={PAGE_WIDTH}
-                    height={(500 / 1500) * PAGE_WIDTH}
+                    height={0.33333 * PAGE_WIDTH}
                     webp
                   />
                 </div>
@@ -257,30 +243,6 @@ const Section = styled("section", {
   flexDirection: "column",
   alignItems: "center",
   textAlign: "center",
-});
-
-const Nav = styled("nav", {
-  width: "100%",
-  maxWidth: `${CONTENT_WIDTH}px`,
-  margingHorizontal: "auto",
-  borderTop: "1px solid",
-  borderBottom: "1px solid",
-  borderColor: "$secondary",
-  padding: "$small",
-});
-
-const NavList = styled("ul", {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-});
-
-const NavItem = styled("li", {});
-
-const NavLink = styled("a", {
-  typography: "$navLink",
-  textDecoration: "none",
-  color: "$primary",
 });
 
 const Footer = styled("footer", {

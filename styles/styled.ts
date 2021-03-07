@@ -6,9 +6,18 @@ import {
   paddingVertical,
   margingHorizontal,
   size,
+  absoluteFill,
+  flexCenter,
 } from "./utils";
 
-export const { styled, css, theme, global, getCssString } = createCss({
+export const {
+  styled,
+  css,
+  theme,
+  global,
+  getCssString,
+  keyframes,
+} = createCss({
   theme: {
     colors: {
       text: "#333",
@@ -43,11 +52,15 @@ export const { styled, css, theme, global, getCssString } = createCss({
 
   utils: {
     // @ts-ignore
-    typography,
-    paddingHorizontal,
-    paddingVertical,
-    margingHorizontal,
     size,
+    // @ts-ignore
+    typography,
+    // @ts-ignore
+    absoluteFill,
+    flexCenter,
+    paddingVertical,
+    paddingHorizontal,
+    margingHorizontal,
   },
 
   conditions: {
