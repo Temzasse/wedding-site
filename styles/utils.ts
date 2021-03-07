@@ -44,10 +44,9 @@ const typographyVariants: {
   $bodySmall: {
     fontFamily: '"Open Sans", sans-serif',
     lineHeight: 1.2,
-    fontSize: rem(12),
+    fontSize: rem(14),
     fontWeight: 400,
   },
-
   $title1: {
     fontFamily: '"Playfair Display", serif',
     lineHeight: 1,

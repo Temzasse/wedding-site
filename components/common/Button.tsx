@@ -6,6 +6,7 @@ export const Button = styled("button", {
   position: "relative",
   paddingVertical: "$normal",
   paddingHorizontal: "$large",
+  borderRadius: "2px",
 
   "&:after": {
     content: `""`,

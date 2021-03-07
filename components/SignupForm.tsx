@@ -9,7 +9,7 @@ const initialValues = {
   phone: "",
   email: "",
   diet: "",
-  description: "",
+  additional: [{ name: "", diet: "" }],
   other: "",
 };
 
@@ -25,6 +25,25 @@ export default function SignupForm() {
     setFormValues((p) => ({ ...p, [name]: value } as any));
   }
 
+  function handleAdditionalInputChange(
+    key: string,
+    value: string,
+    index: number
+  ) {
+    setFormValues((p) => {
+      const additional = [...p.additional];
+      additional[index] = { ...additional[index], [key]: value };
+      return { ...p, additional };
+    });
+  }
+
+  function handleAddAdditional() {
+    setFormValues((p) => ({
+      ...p,
+      additional: [...p.additional, { name: "", diet: "" }],
+    }));
+  }
+
   async function handleSubmit(event: any) {
     event.preventDefault();
     const form = event.target;
@@ -32,6 +51,9 @@ export default function SignupForm() {
     const values = {
       "form-name": form.getAttribute("name"),
       ...formValues,
+      additional: formValues.additional
+        .map((x) => `${x.name} (${x.diet})`)
+        .join(", "),
     };
 
     if (botField && botField.value) {
@@ -129,7 +151,7 @@ export default function SignupForm() {
 
             <Label>
               <Text variant="body" color="white">
-                Nimi (pakollinen)
+                Nimi (pakollinen):
               </Text>
 
               <Input
@@ -143,7 +165,7 @@ export default function SignupForm() {
 
             <Label>
               <Text variant="body" color="white">
-                Puhelinnumero
+                Puhelinnumero:
               </Text>
 
               <Input
@@ -156,7 +178,7 @@ export default function SignupForm() {
 
             <Label>
               <Text variant="body" color="white">
-                Sähköposti
+                Sähköposti:
               </Text>
 
               <Input
@@ -169,7 +191,7 @@ export default function SignupForm() {
 
             <Label>
               <Text variant="body" color="white">
-                Erikoisruokavalio
+                Erikoisruokavalio:
               </Text>
 
               <TextArea
@@ -180,23 +202,77 @@ export default function SignupForm() {
               />
             </Label>
 
+            <div style={{ width: "100%", textAlign: "left" }}>
+              <Stack spacing="normal">
+                <Text variant="body" color="white">
+                  Ilmoitan itseni lisäksi myös:
+                </Text>
+
+                <Stack spacing="medium" css={{ width: "100%" }}>
+                  {formValues.additional.map(({ name, diet }, index) => (
+                    <Stack
+                      key={index}
+                      axis="x"
+                      spacing="normal"
+                      css={{ width: "100%" }}
+                    >
+                      <Label css={{ width: "40%" }}>
+                        <Text variant="bodySmall" color="white">
+                          Nimi {index + 1}:
+                        </Text>
+
+                        <Input
+                          type="text"
+                          value={name}
+                          onChange={(e) =>
+                            handleAdditionalInputChange(
+                              "name",
+                              e.target.value,
+                              index
+                            )
+                          }
+                        />
+                      </Label>
+
+                      <Label css={{ width: "60%" }}>
+                        <Text variant="bodySmall" color="white">
+                          Erikoisruokavalio:
+                        </Text>
+
+                        <Input
+                          type="text"
+                          value={diet}
+                          onChange={(e) =>
+                            handleAdditionalInputChange(
+                              "diet",
+                              e.target.value,
+                              index
+                            )
+                          }
+                        />
+                      </Label>
+                    </Stack>
+                  ))}
+
+                  <div>
+                    <Stack axis="x" spacing="small" align="center">
+                      <AddAdditionalButton
+                        type="button"
+                        aria-label="Lisää uusi ilmoitettava"
+                        onClick={handleAddAdditional}
+                      />
+                      <Text variant="bodySmall" color="white">
+                        Lisää uusi rivi
+                      </Text>
+                    </Stack>
+                  </div>
+                </Stack>
+              </Stack>
+            </div>
+
             <Label>
               <Text variant="body" color="white">
-                Ilmoitan itseni lisäksi myös
-              </Text>
-
-              <TextArea
-                rows={4}
-                name="description"
-                placeholder={`Kirjoita tähän kaikki kutsussa mainitut perheenjäsenesi tai kumppanisi, jotka haluat ilmoittaa samalla. Esim. "Sampo, Kari, ja Johanna."`}
-                value={formValues.description}
-                onChange={handleInputChange}
-              />
-            </Label>
-
-            <Label>
-              <Text variant="body" color="white">
-                Muuta
+                Muuta:
               </Text>
 
               <TextArea
@@ -375,7 +451,7 @@ const Input = styled("input", {
   backgroundColor: "$white",
   width: "100%",
   marginTop: "$xsmall",
-  padding: "$normal",
+  padding: "$small",
   outline: "none !important",
   borderRadius: "2px",
   typography: "$body",
@@ -389,7 +465,7 @@ const TextArea = styled("textarea", {
   backgroundColor: "$white",
   width: "100%",
   marginTop: "$xsmall",
-  padding: "$normal",
+  padding: "$small",
   outline: "none",
   borderRadius: "2px",
   typography: "$body",
@@ -432,4 +508,44 @@ const SubmissionSuccessfulContent = styled("div", {
   opacity: 0,
   animation: `${scaleUp} ease 100ms forwards`,
   animationDelay: "500ms",
+});
+
+const AddAdditionalButton = styled("button", {
+  border: "2px solid $white",
+  backgroundColor: "transparent",
+  fontSize: "16px",
+  height: "2.5em",
+  width: "2.5em",
+  borderRadius: "999px",
+  position: "relative",
+  transition: "transform 100ms ease, opacity 100ms ease",
+  cursor: "pointer",
+
+  "&:after, &:before": {
+    content: `""`,
+    display: "block",
+    backgroundColor: "$white",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+
+  "&:before": {
+    height: "1em",
+    width: "0.2em",
+  },
+
+  "&:after": {
+    height: "0.2em",
+    width: "1em",
+  },
+
+  "&:hover": {
+    transform: "scale(1.1)",
+  },
+
+  "&:active": {
+    opacity: 0.7,
+  },
 });
