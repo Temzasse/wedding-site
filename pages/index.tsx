@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
-import { Text, Stack, Spacer } from "@components/common";
+import { Text, Stack, Spacer, Link } from "@components/common";
 import SignupForm from "@components/SignupForm";
 import Navbar from "@components/Navbar";
 import logoImg from "../images/logo.png";
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <Page>
       <Head>
-        <title>Teemu & Milka</title>
+        <title>Teemun ja Milkan häät</title>
       </Head>
 
       <Content>
@@ -27,25 +27,21 @@ export default function Home() {
 
           <Stack align="center" spacing="xxxlarge">
             <Stack align="center" spacing="large">
-              <div>
-                <Img
-                  src={logoImg}
-                  alt="Teemun ja Milkan alkukirjaimet"
-                  width={120}
-                  height={120}
-                  webp
-                />
-              </div>
+              <Img
+                src={logoImg}
+                alt="Teemun ja Milkan alkukirjaimet"
+                width={120}
+                height={120}
+                webp
+              />
 
-              <div>
-                <Img
-                  src={teemuMilkaImg}
-                  alt="Teemu ja Milka"
-                  width={864}
-                  height={156}
-                  webp
-                />
-              </div>
+              <Img
+                src={teemuMilkaImg}
+                alt="Teemu ja Milka"
+                width={864}
+                height={156}
+                webp
+              />
             </Stack>
 
             <Navbar />
@@ -89,23 +85,23 @@ export default function Home() {
 
                 <LeafDecoration />
 
-                <div>
-                  <Img
-                    src={mapImg}
-                    alt="Karttaohjeet Hirvihaaran kartanolle"
-                    width={PAGE_WIDTH}
-                    height={0.33333 * PAGE_WIDTH}
-                    webp
-                  />
-                </div>
+                <Img
+                  src={mapImg}
+                  alt="Karttaohjeet Hirvihaaran kartanolle"
+                  width={PAGE_WIDTH}
+                  height={0.33333 * PAGE_WIDTH}
+                  webp
+                />
 
                 <Text variant="title3">Hirvihaaran kartano</Text>
 
-                <Spacer size="small" />
+                <Spacer size="normal" />
 
                 <Text variant="body">Lasipaviljonki</Text>
 
-                <Text variant="body">Kartanonlenkki 56, 04680 Hirvihaara</Text>
+                <Link href="https://g.page/Hirvihaara?share">
+                  Kartanonlenkki 56, 04680 Hirvihaara
+                </Link>
 
                 <Text variant="body">
                   Series A financing value proposition handshake
@@ -116,7 +112,13 @@ export default function Home() {
                   disruptive stock.
                 </Text>
 
-                <Text variant="body">http://hirvihaarankartano.fi/</Text>
+                <Link
+                  href="http://hirvihaarankartano.fi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Hirvihaaran verkkosivut
+                </Link>
               </Stack>
             </Section>
 
@@ -128,27 +130,41 @@ export default function Home() {
 
                 <LeafDecoration />
 
-                <Text variant="title3">Aikataulu</Text>
+                <div>
+                  <Stack spacing="xlarge" align="center">
+                    <div>
+                      <Stack spacing="medium" align="center">
+                        <Text variant="title3">Aikataulu</Text>
 
-                <Text variant="body">
-                  Series A financing value proposition handshake
-                  business-to-consumer social proof scrum project release lean
-                  startup innovator seed money user experience. Partner network
-                  vesting period low hanging fruit deployment advisor equity
-                  backing. Partner network graphical user interface virality
-                  disruptive stock.
-                </Text>
+                        <Text variant="body">
+                          Series A financing value proposition handshake
+                          business-to-consumer social proof scrum project
+                          release lean startup innovator seed money user
+                          experience. Partner network vesting period low hanging
+                          fruit deployment advisor equity backing. Partner
+                          network graphical user interface virality disruptive
+                          stock.
+                        </Text>
+                      </Stack>
+                    </div>
 
-                <Text variant="title3">Give me money</Text>
+                    <div>
+                      <Stack spacing="medium" align="center">
+                        <Text variant="title3">Hääparin muistaminen</Text>
 
-                <Text variant="body">
-                  Series A financing value proposition handshake
-                  business-to-consumer social proof scrum project release lean
-                  startup innovator seed money user experience. Partner network
-                  vesting period low hanging fruit deployment advisor equity
-                  backing. Partner network graphical user interface virality
-                  disruptive stock.
-                </Text>
+                        <Text variant="body">
+                          Series A financing value proposition handshake
+                          business-to-consumer social proof scrum project
+                          release lean startup innovator seed money user
+                          experience. Partner network vesting period low hanging
+                          fruit deployment advisor equity backing. Partner
+                          network graphical user interface virality disruptive
+                          stock.
+                        </Text>
+                      </Stack>
+                    </div>
+                  </Stack>
+                </div>
               </Stack>
             </Section>
 
@@ -169,20 +185,32 @@ export default function Home() {
                 <Spacer size="xlarge" />
 
                 <div>
-                  <Stack axis="x" spacing="large">
+                  <Stack axis="x" spacing="xlarge">
                     <div>
-                      <Stack spacing="small">
+                      <Stack spacing="small" align="center">
                         <Text variant="title3">Teemu Taskula</Text>
-                        <Text variant="body">teemu.taskula@taitounited.fi</Text>
-                        <Text variant="body">+358400848728</Text>
+                        <Link
+                          href="mailto:teemu.taskula@taitounited.fi"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          teemu.taskula@taitounited.fi
+                        </Link>
+                        <Link href="tel:+358400848728">+358400848728</Link>
                       </Stack>
                     </div>
 
                     <div>
-                      <Stack spacing="small">
+                      <Stack spacing="small" align="center">
                         <Text variant="title3">Milka Nissinen</Text>
-                        <Text variant="body">milkamarianne@gmail.com</Text>
-                        <Text variant="body">+358445758980</Text>
+                        <Link
+                          href="mailto:milkamarianne@gmail.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          milkamarianne@gmail.com
+                        </Link>
+                        <Link href="tel:+358445758980">+358445758980</Link>
                       </Stack>
                     </div>
                   </Stack>
@@ -209,11 +237,7 @@ export default function Home() {
 }
 
 function LeafDecoration() {
-  return (
-    <div>
-      <Img src={branchImg} alt="" width={150} height={70} webp />
-    </div>
-  );
+  return <Img src={branchImg} alt="" width={150} height={70} webp />;
 }
 
 const Page = styled("div", {

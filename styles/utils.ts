@@ -64,7 +64,7 @@ const typographyVariants: {
   $title3: {
     fontFamily: '"Playfair Display", serif',
     lineHeight: 1,
-    fontSize: rem(24),
+    fontSize: rem(26),
     fontWeight: 500,
     color: "$primary",
   },
