@@ -57,7 +57,7 @@ export default function Home() {
         <main>
           <Stack spacing="xxxlarge">
             <Section>
-              <Stack spacing="xlarge" align="center">
+              <Stack spacing="xlarge">
                 <Stack spacing="large" align="center">
                   <Text variant="title2" id="ilmottaudu">
                     Tervetuloa
@@ -65,14 +65,24 @@ export default function Home() {
 
                   <LeafDecoration />
 
-                  <Text variant="body">
-                    Series A financing value proposition handshake
-                    business-to-consumer social proof scrum project release lean
-                    startup innovator seed money user experience. Partner
-                    network vesting period low hanging fruit deployment advisor
-                    equity backing. Partner network graphical user interface
-                    virality disruptive stock.
-                  </Text>
+                  <Stack spacing="medium">
+                    <Text variant="body">
+                      Toivotamme sinut tervetulleeksi juhlimaan häitämme
+                      joulukuun 4. päivänä Hirvihaaran kartanon Lasipaviljonkiin
+                      Mäntsälään. Luvassa on rentoa ja lämmintä tunnelmaa
+                      ystävien ja perheen kesken, hyvää ruokaa, nauramista ja
+                      toivottavasti myös paljon tanssimista!
+                    </Text>
+
+                    <Text variant="body">
+                      Tältä sivulta löydät tietoa häihin liittyvistä käytännön
+                      asioista. Ilmoitathan osallistumisestasi alla olevalla
+                      lomakkeella viimeistään <br />
+                      <strong>15. syyskuuta</strong> mennessä.
+                    </Text>
+
+                    <Text variant="body">Joulukuussa juhlitaan!</Text>
+                  </Stack>
                 </Stack>
               </Stack>
 
@@ -116,12 +126,11 @@ export default function Home() {
                 </Link>
 
                 <Text variant="body">
-                  Series A financing value proposition handshake
-                  business-to-consumer social proof scrum project release lean
-                  startup innovator seed money user experience. Partner network
-                  vesting period low hanging fruit deployment advisor equity
-                  backing. Partner network graphical user interface virality
-                  disruptive stock.
+                  Hirvihaaran kartano sijaitsee muutaman kilometrin päässä
+                  Mäntsälän keskustasta. Kartanon pihapiirissä on iso, ilmainen
+                  parkkipaikka. Mäntsälään pääsee myös helposti junalla, ja
+                  keskustasta voi ottaa kartanolle taksikyydin. Kannustamme myös
+                  järjestämään kimppakyytejä!
                 </Text>
 
                 <Link
@@ -149,13 +158,10 @@ export default function Home() {
                         <Text variant="title3">Aikataulu</Text>
 
                         <Text variant="body">
-                          Series A financing value proposition handshake
-                          business-to-consumer social proof scrum project
-                          release lean startup innovator seed money user
-                          experience. Partner network vesting period low hanging
-                          fruit deployment advisor equity backing. Partner
-                          network graphical user interface virality disruptive
-                          stock.
+                          Vihkiminen alkaa <strong>klo 16</strong>{" "}
+                          juhlapaikalla, Lasipaviljongissa. Saavuthan ajoissa
+                          paikalle. Juhlat jatkuvat juhlijoiden kisakunnosta
+                          riippuen myöhään yöhön.
                         </Text>
                       </Stack>
                     </div>
@@ -165,10 +171,28 @@ export default function Home() {
                         <Text variant="title3">Majoitus</Text>
 
                         <Text variant="body">
-                          Series A financing value proposition handshake
-                          business-to-consumer social proof scrum project
-                          release lean startup innovator seed money user
-                          experience.
+                          Hirvihaaran kartanolta on mahdollista varata majoitus
+                          hintaan 178 €/yö (kahden hengen huone) tai 152 €/yö
+                          (yhden hengen huone). Lisävuode 50 €/yö.
+                        </Text>
+
+                        <Text variant="body">
+                          Kartanolla on myös pienempi sisarhotelli Mäntsälän
+                          keskustassa,{" "}
+                          <Link href="https://www.kartanonmeijeri.com/">
+                            Hotelli Kartanon Meijeri
+                          </Link>
+                          , jossa kahden hengen huone on 135 €/yö ja yhden
+                          hengen huone 108 €/yö. Lisätietoja majoittumisesta ja
+                          varauksista saa osoitteesta{" "}
+                          <Link
+                            href="mailto:myynti@hirvihaarankartano.fi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            myynti@hirvihaarankartano.fi
+                          </Link>
+                          . Muistathan mainita, että olet häävieras.
                         </Text>
                       </Stack>
                     </div>
@@ -178,13 +202,14 @@ export default function Home() {
                         <Text variant="title3">Hääparin muistaminen</Text>
 
                         <Text variant="body">
-                          Series A financing value proposition handshake
-                          business-to-consumer social proof scrum project
-                          release lean startup innovator seed money user
-                          experience. Partner network vesting period low hanging
-                          fruit deployment advisor equity backing. Partner
-                          network graphical user interface virality disruptive
-                          stock.
+                          Useiden yhdessä asuttujen vuosien jälkeen lusikat,
+                          soppakauhat, leivänpaahtimet ja maljakot ovat jo
+                          löytäneet tiensä kotiimme. Häälahjojen sijaan meille
+                          tärkeintä onkin saada juhlia tätä ihanaa päivää
+                          rakkaitten vieraittemme kanssa! Jos kuitenkin tahdot
+                          muistaa meitä lahjalla, toivomme pientä lahjoitusta
+                          häämatkaamme varten. Muistamiset voi osoittaa suoraan
+                          häämatkatilillemme <em>FI72 1402 3202 0110 82</em>.
                         </Text>
                       </Stack>
                     </div>
@@ -202,9 +227,8 @@ export default function Home() {
                 <LeafDecoration />
 
                 <Text variant="body">
-                  Series A financing value proposition handshake
-                  business-to-consumer social proof scrum project release lean
-                  startup innovator seed money user experience.
+                  Meihin molempiin voi olla yhteydessä sekä sähköpostitse että
+                  puhelimitse WhatsAppissa, tekstarilla tai soittamalla.
                 </Text>
 
                 <Spacer size="xlarge" />
@@ -240,6 +264,48 @@ export default function Home() {
                     </div>
                   </Stack>
                 </div>
+              </Stack>
+            </Section>
+
+            <Section lang="en">
+              <Stack spacing="large" align="center">
+                <Text variant="title2" id="in-english">
+                  In English
+                </Text>
+
+                <LeafDecoration />
+
+                <Stack spacing="medium">
+                  <Text variant="body">
+                    Hey you international guest! We warmly welcome you to
+                    celebrate our wedding on December 4 in Mäntsälä, Finland.
+                    Our wedding ceremony and reception will take place at{" "}
+                    <Link
+                      href="https://hirvihaarankartano.fi/en/glass-pavilion"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Hirvihaaran kartano Glass Pavilion
+                    </Link>
+                    . The ceremony will begin at <br />4 p.m. and the reception
+                    and party will go on until 2 a.m.
+                  </Text>
+
+                  <Text variant="body">
+                    Please confirm your attendance directly to either Teemu or
+                    Milka by <strong>September 15</strong>, the latest.
+                  </Text>
+
+                  <Text variant="body">
+                    Don’t worry about finding your way to the venue, we’ll make
+                    sure you get there easily. We have also reserved
+                    accommodation for you at the venue, so you can spend the
+                    whole night partying with us and join us for an
+                    after-wedding breakfast in the morning.
+                  </Text>
+
+                  <Text variant="body">Hope to see you in December!</Text>
+                </Stack>
               </Stack>
             </Section>
           </Stack>

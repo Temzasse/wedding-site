@@ -8,8 +8,8 @@ export default function Navbar() {
     <Nav>
       <Stack
         as="ul"
-        axis={{ initial: "x", md: "y" }}
-        spacing={{ initial: "none", md: "medium" }}
+        axis={{ initial: "x", lg: "y" }}
+        spacing={{ initial: "none", lg: "medium" }}
         align="center"
         justify="between"
       >
@@ -24,6 +24,9 @@ export default function Navbar() {
         </NavItem>
         <NavItem>
           <NavLink href="#yhteystiedot">Yhteystiedot</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#in-english">In English</NavLink>
         </NavItem>
       </Stack>
     </Nav>
@@ -43,7 +46,7 @@ const Nav = styled("nav", {
 const NavItem = styled("li", {
   borderBottom: "1px solid transparent",
   when: {
-    md: {
+    lg: {
       marginBottom: "column",
     },
   },
