@@ -118,6 +118,14 @@ export const absoluteFill = () => (value: any) => ({
   left: "0px",
 });
 
+export const fixedFill = () => (value: any) => ({
+  position: "fixed",
+  top: "0px",
+  right: "0px",
+  bottom: "0px",
+  left: "0px",
+});
+
 export const flexCenter = () => (value: any) => ({
   display: "flex",
   justifyContent: "center",

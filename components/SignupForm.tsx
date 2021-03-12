@@ -83,6 +83,12 @@ export default function SignupForm() {
     setSubmitted(false);
     setOpen(false);
     setFormValues(initialValues);
+    requestAnimationFrame(() => {
+      try {
+        const el = document.getElementById("reittiohjeet");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (error) {}
+    });
   }
 
   return (
@@ -501,9 +507,11 @@ const scaleUp = keyframes({
 });
 
 const SubmissionSuccessful = styled("div", {
-  absoluteFill: true,
+  fixedFill: true,
   flexCenter: true,
-  backdropFilter: "blur(12px) brightness(0.9)",
+  backgroundColor: "rgba(150, 150, 150, 0.5)",
+  backdropFilter: "blur(12px)",
+  WebkitBackdropFilter: "blur(12px)",
   opacity: 0,
   animation: `${fadeIn} linear 100ms forwards`,
 });
@@ -512,7 +520,7 @@ const SubmissionSuccessfulContent = styled("div", {
   paddingVertical: "$xlarge",
   paddingHorizontal: "$xlarge",
   borderRadius: "12px",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
   transform: "scale(0)",
   opacity: 0,
   animation: `${scaleUp} ease 100ms forwards`,

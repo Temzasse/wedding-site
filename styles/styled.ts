@@ -7,6 +7,7 @@ import {
   margingHorizontal,
   size,
   absoluteFill,
+  fixedFill,
   flexCenter,
 } from "./utils";
 
@@ -57,6 +58,8 @@ export const {
     typography,
     // @ts-ignore
     absoluteFill,
+    // @ts-ignore
+    fixedFill,
     flexCenter,
     paddingVertical,
     paddingHorizontal,
