@@ -59,9 +59,7 @@ export default function Home() {
             <Section>
               <Stack spacing="xlarge">
                 <Stack spacing="large" align="center">
-                  <Text variant="title2" id="ilmottaudu">
-                    Tervetuloa
-                  </Text>
+                  <Text variant="title2">Tervetuloa</Text>
 
                   <LeafDecoration />
 

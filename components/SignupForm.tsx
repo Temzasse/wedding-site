@@ -358,7 +358,7 @@ const Wrapper = styled("div", {
         maxHeight: "9999px",
       },
       false: {
-        maxHeight: "0px",
+        maxHeight: "60px",
       },
     },
   },
