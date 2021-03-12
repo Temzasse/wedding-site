@@ -52,6 +52,7 @@ export default function SignupForm() {
       "form-name": form.getAttribute("name"),
       ...formValues,
       additional: formValues.additional
+        .filter((x) => !!x.name)
         .map((x) => `${x.name} (${x.diet})`)
         .join(", "),
     };
@@ -103,6 +104,13 @@ export default function SignupForm() {
             <label>
               Don’t fill this out:
               <input id="bot-field" name="bot-field" />
+            </label>
+          </div>
+
+          <div className="visually-hidden" hidden>
+            <label>
+              Don’t fill this out:
+              <input type="text" name="additional" />
             </label>
           </div>
 

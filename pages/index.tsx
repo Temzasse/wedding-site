@@ -209,7 +209,7 @@ export default function Home() {
                           rakkaitten vieraittemme kanssa! Jos kuitenkin tahdot
                           muistaa meitä lahjalla, toivomme pientä lahjoitusta
                           häämatkaamme varten. Muistamiset voi osoittaa suoraan
-                          häämatkatilillemme <em>FI72 1402 3202 0110 82</em>.
+                          häämatkatilillemme <em>FI7214023202011082</em>.
                         </Text>
                       </Stack>
                     </div>
