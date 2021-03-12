@@ -29,7 +29,7 @@ const variantToTag = {
 };
 
 const StyledText = styled("p", {
-  maxWidth: "70ch",
+  maxWidth: "65ch",
   margin: "0px",
   color: "$text",
   variants: {

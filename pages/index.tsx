@@ -25,7 +25,10 @@ export default function Home() {
             <Img src={leafsImg} />
           </HeaderDecoration>
 
-          <Stack align="center" spacing="xxxlarge">
+          <Stack
+            align="center"
+            spacing={{ initial: "xxxlarge", md: "xxlarge" }}
+          >
             <Stack align="center" spacing="large">
               <Img
                 src={logoImg}
@@ -41,6 +44,7 @@ export default function Home() {
                 width={864}
                 height={156}
                 webp
+                style={{ height: "auto", maxWidth: "80vw" }}
               />
             </Stack>
 
@@ -48,7 +52,7 @@ export default function Home() {
           </Stack>
         </Header>
 
-        <Spacer size="xxxlarge" />
+        <Spacer size={{ initial: "xxxlarge", md: "xxlarge" }} />
 
         <main>
           <Stack spacing="xxxlarge">
@@ -74,7 +78,9 @@ export default function Home() {
 
               <Spacer size="xlarge" />
 
-              <SignupForm />
+              <SignupFormWrapper>
+                <SignupForm />
+              </SignupFormWrapper>
             </Section>
 
             <Section>
@@ -85,13 +91,15 @@ export default function Home() {
 
                 <LeafDecoration />
 
-                <Img
-                  src={mapImg}
-                  alt="Karttaohjeet Hirvihaaran kartanolle"
-                  width={PAGE_WIDTH}
-                  height={0.33333 * PAGE_WIDTH}
-                  webp
-                />
+                <MapImg>
+                  <Img
+                    src={mapImg}
+                    alt="Karttaohjeet Hirvihaaran kartanolle"
+                    width={PAGE_WIDTH}
+                    height={0.33333 * PAGE_WIDTH}
+                    webp
+                  />
+                </MapImg>
 
                 <Text variant="title3">Hirvihaaran kartano</Text>
 
@@ -99,7 +107,11 @@ export default function Home() {
 
                 <Text variant="body">Lasipaviljonki</Text>
 
-                <Link href="https://g.page/Hirvihaara?share">
+                <Link
+                  href="https://g.page/Hirvihaara?share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Kartanonlenkki 56, 04680 Hirvihaara
                 </Link>
 
@@ -150,6 +162,19 @@ export default function Home() {
 
                     <div>
                       <Stack spacing="medium" align="center">
+                        <Text variant="title3">Majoitus</Text>
+
+                        <Text variant="body">
+                          Series A financing value proposition handshake
+                          business-to-consumer social proof scrum project
+                          release lean startup innovator seed money user
+                          experience.
+                        </Text>
+                      </Stack>
+                    </div>
+
+                    <div>
+                      <Stack spacing="medium" align="center">
                         <Text variant="title3">Hääparin muistaminen</Text>
 
                         <Text variant="body">
@@ -185,7 +210,7 @@ export default function Home() {
                 <Spacer size="xlarge" />
 
                 <div>
-                  <Stack axis="x" spacing="xlarge">
+                  <Stack axis={{ initial: "x", md: "y" }} spacing="xlarge">
                     <div>
                       <Stack spacing="small" align="center">
                         <Text variant="title3">Teemu Taskula</Text>
@@ -229,7 +254,16 @@ export default function Home() {
 }
 
 function LeafDecoration() {
-  return <Img src={branchImg} alt="" width={150} height={70} webp />;
+  return (
+    <Img
+      src={branchImg}
+      alt=""
+      width={150}
+      height={70}
+      webp
+      style={{ height: "auto" }}
+    />
+  );
 }
 
 const Page = styled("div", {
@@ -245,6 +279,14 @@ const Content = styled("div", {
   backgroundColor: "#fff",
   boxShadow: "0px 0px 24px rgb(0, 0, 0, 0.05)",
   overflow: "hidden",
+  when: {
+    md: {
+      paddingTop: "200px",
+    },
+    sm: {
+      paddingTop: "120px",
+    },
+  },
 });
 
 const Header = styled("header", {
@@ -257,8 +299,8 @@ const Header = styled("header", {
 const Section = styled("section", {
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   textAlign: "center",
+  paddingHorizontal: "$normal",
 });
 
 const HeaderDecoration = styled("div", {
@@ -270,5 +312,18 @@ const HeaderDecoration = styled("div", {
   "& > img": {
     width: "100%",
     objectFit: "contain",
+  },
+});
+
+const SignupFormWrapper = styled("div", {
+  margingHorizontal: "calc(-1 * $normal) !important",
+});
+
+const MapImg = styled("div", {
+  margingHorizontal: "calc(-1 * $normal) !important",
+
+  "& > picture, img": {
+    width: "100%",
+    height: "auto",
   },
 });

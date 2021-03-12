@@ -361,6 +361,7 @@ const FormWrapper = styled("div", {
   backgroundColor: "$secondary",
   paddingTop: "$xlarge",
   paddingBottom: "$xxlarge",
+  paddingHorizontal: "$normal",
   boxShadow: "inset 0px 0px 24px rgba(0,0,0,0.1)",
 
   variants: {
