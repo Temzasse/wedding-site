@@ -374,7 +374,6 @@ const HeaderDecoration = styled("div", {
   top: "0px",
   left: "0px",
   right: "0px",
-  height: "500px",
   "& > img": {
     width: "100%",
     objectFit: "contain",

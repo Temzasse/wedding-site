@@ -53,7 +53,7 @@ export default function SignupForm() {
       ...formValues,
       additional: formValues.additional
         .filter((x) => !!x.name)
-        .map((x) => `${x.name} (${x.diet})`)
+        .map((x) => `${x.name}${x.diet ? ` (${x.diet})` : ""}`)
         .join(", "),
     };
 
