@@ -59,7 +59,9 @@ export default function Home() {
             <Section>
               <Stack spacing="xlarge">
                 <Stack spacing="large" align="center">
-                  <Text variant="title2">Tervetuloa</Text>
+                  <Text variant="title2" id="tervetuloa">
+                    Tervetuloa
+                  </Text>
 
                   <LeafDecoration />
 
@@ -277,7 +279,7 @@ export default function Home() {
                   <Text variant="body">
                     Hey you international guest! We warmly welcome you to
                     celebrate our wedding on December 4 in Mäntsälä, Finland.
-                    Our wedding ceremony and reception will take place at{" "}
+                    The wedding ceremony and reception will take place at{" "}
                     <Link
                       href="https://hirvihaarankartano.fi/en/glass-pavilion"
                       target="_blank"
@@ -286,7 +288,7 @@ export default function Home() {
                       Hirvihaaran kartano Glass Pavilion
                     </Link>
                     . The ceremony will begin at <br />4 p.m. and the reception
-                    and party will go on until 2 a.m.
+                    and party will go on until we drop 🕺🏼💃🏼
                   </Text>
 
                   <Text variant="body">
@@ -295,11 +297,9 @@ export default function Home() {
                   </Text>
 
                   <Text variant="body">
-                    Don’t worry about finding your way to the venue, we’ll make
-                    sure you get there easily. We have also reserved
-                    accommodation for you at the venue, so you can spend the
-                    whole night partying with us and join us for an
-                    after-wedding breakfast in the morning.
+                    Regarding your arrival to the venue and accommodation, don’t
+                    worry – <br />
+                    we've got you covered.
                   </Text>
 
                   <Text variant="body">Hope to see you in December!</Text>
