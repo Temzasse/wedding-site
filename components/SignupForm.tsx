@@ -219,7 +219,7 @@ export default function SignupForm() {
             <div style={{ width: "100%", textAlign: "left" }}>
               <Stack spacing="normal">
                 <Text variant="body" color="white">
-                  Ilmoitan itseni lisäksi myös:
+                  Ilmoitan itseni lisäksi myös muita kutsussa mainittuja:
                 </Text>
 
                 <Stack spacing="medium" css={{ width: "100%" }}>

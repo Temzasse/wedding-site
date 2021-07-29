@@ -227,8 +227,10 @@ export default function Home() {
                 <LeafDecoration />
 
                 <Text variant="body">
-                  Meihin molempiin voi olla yhteydessä sekä sähköpostitse että
-                  puhelimitse WhatsAppissa, tekstarilla tai soittamalla.
+                  Onko sinulla kysyttävää ilmoittautumisesta, aikataulusta tai
+                  jostain muusta häihin liittyvästä asiasta? Meihin molempiin
+                  voi olla yhteydessä sekä sähköpostitse että puhelimitse
+                  WhatsAppissa, tekstarilla tai soittamalla.
                 </Text>
 
                 <Spacer size="xlarge" />
