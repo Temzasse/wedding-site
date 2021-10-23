@@ -2,10 +2,10 @@ import { styled } from "@styles/styled";
 import { themeProp } from "@styles/helpers";
 
 type Props = React.ComponentProps<typeof StyledText> & {
-  as?: any;
+  as?: keyof JSX.Element;
 };
 
-export function Text({ children, ...props }: Props) {
+export function Text(props: Props) {
   const variant =
     (typeof props.variant === "object"
       ? props.variant.initial
@@ -13,11 +13,7 @@ export function Text({ children, ...props }: Props) {
 
   const asTag = props.as || variantToTag[variant];
 
-  return (
-    <StyledText {...props} as={asTag}>
-      {children}
-    </StyledText>
-  );
+  return <StyledText {...(props as any)} as={asTag} />;
 }
 
 const variantToTag = {

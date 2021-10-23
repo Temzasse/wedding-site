@@ -1,11 +1,9 @@
 import * as React from "react";
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { getCssString } from "@styles/styled";
+import { getCssText } from "@styles/styled";
 
 export default class Document extends NextDocument {
   render() {
-    const styles = getCssString();
-
     return (
       <Html lang="fi">
         <Head>
@@ -24,7 +22,10 @@ export default class Document extends NextDocument {
             rel="stylesheet"
           />
 
-          <style id="stitches" dangerouslySetInnerHTML={{ __html: styles }} />
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
         </Head>
         <body>
           <Main />

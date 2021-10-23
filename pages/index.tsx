@@ -5,6 +5,7 @@ import { Text, Stack, Spacer, Link } from "@components/common";
 import SignupForm from "@components/SignupForm";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
+
 import logoImg from "../images/logo.png";
 import teemuMilkaImg from "../images/teemu_milka.png";
 import mapImg from "../images/map.png";
@@ -27,7 +28,7 @@ export default function Home() {
 
           <Stack
             align="center"
-            spacing={{ initial: "xxxlarge", md: "xxlarge" }}
+            spacing={{ "@initial": "xxxlarge", "@md": "xxlarge" }}
           >
             <Stack align="center" spacing="large">
               <Img
@@ -52,7 +53,7 @@ export default function Home() {
           </Stack>
         </Header>
 
-        <Spacer size={{ initial: "xxxlarge", md: "xxlarge" }} />
+        <Spacer size={{ "@initial": "xxxlarge", "@md": "xxlarge" }} />
 
         <main>
           <Stack spacing="xxxlarge">
@@ -236,7 +237,10 @@ export default function Home() {
                 <Spacer size="xlarge" />
 
                 <div>
-                  <Stack axis={{ initial: "x", md: "y" }} spacing="xlarge">
+                  <Stack
+                    axis={{ "@initial": "x", "@md": "y" }}
+                    spacing="xlarge"
+                  >
                     <div>
                       <Stack spacing="small" align="center">
                         <Text variant="title3">Teemu Taskula</Text>

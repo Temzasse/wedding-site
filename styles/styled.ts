@@ -1,4 +1,4 @@
-import { createCss } from "@stitches/react";
+import { createStitches } from "@stitches/react";
 
 import {
   typography,
@@ -11,65 +11,53 @@ import {
   flexCenter,
 } from "./utils";
 
-export const {
-  styled,
-  css,
-  theme,
-  global,
-  getCssString,
-  keyframes,
-} = createCss({
-  theme: {
-    colors: {
-      text: "#333",
-      gray: "#888",
-      white: "#fff",
-      primary: "hsl(133, 35%, 10%)",
-      secondary: "hsl(155, 7%, 47%)",
-      tertiary: "hsl(39, 56%, 46%)",
-      // tertiary: "hsl(35, 32%, 76%)",
-      // tertiaryLight: "hsl(35, 32%, 90%)",
+export const { styled, css, theme, globalCss, getCssText, keyframes } =
+  createStitches({
+    theme: {
+      colors: {
+        text: "#333",
+        gray: "#888",
+        white: "#fff",
+        primary: "hsl(133, 35%, 10%)",
+        secondary: "hsl(155, 7%, 47%)",
+        tertiary: "hsl(39, 56%, 46%)",
+      },
+      space: {
+        none: "0px",
+        xxsmall: "4px",
+        xsmall: "8px",
+        small: "12px",
+        normal: "16px",
+        medium: "24px",
+        large: "32px",
+        xlarge: "56px",
+        xxlarge: "72px",
+        xxxlarge: "120px",
+      },
+      radii: {
+        small: "4px",
+        normal: "8px",
+        medium: "16px",
+        large: "24px",
+        full: "999px",
+      },
     },
-    space: {
-      none: "0px",
-      xxsmall: "4px",
-      xsmall: "8px",
-      small: "12px",
-      normal: "16px",
-      medium: "24px",
-      large: "32px",
-      xlarge: "56px",
-      xxlarge: "72px",
-      xxxlarge: "120px",
-    },
-    radii: {
-      small: "4px",
-      normal: "8px",
-      medium: "16px",
-      large: "24px",
-      full: "999px",
-    },
-  },
 
-  utils: {
-    // @ts-ignore
-    size,
-    // @ts-ignore
-    typography,
-    // @ts-ignore
-    absoluteFill,
-    // @ts-ignore
-    fixedFill,
-    flexCenter,
-    paddingVertical,
-    paddingHorizontal,
-    margingHorizontal,
-  },
+    utils: {
+      size,
+      typography,
+      absoluteFill,
+      fixedFill,
+      flexCenter,
+      paddingVertical,
+      paddingHorizontal,
+      margingHorizontal,
+    },
 
-  conditions: {
-    sm: "@media (max-width: 640px)",
-    md: "@media (max-width: 768px)",
-    lg: "@media (max-width: 1024px)",
-    xl: "@media (min-width: 1025px)",
-  },
-});
+    media: {
+      sm: "(max-width: 640px)",
+      md: "(max-width: 768px)",
+      lg: "(max-width: 1024px)",
+      xl: "(min-width: 1025px)",
+    },
+  });

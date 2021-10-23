@@ -13,8 +13,8 @@ export function themeProp<P extends string, T extends ThemeKey>(
       acc[prop][token] = getStyles(`$${token}`);
       return acc;
     },
-    { [prop]: {} } as {
-      [prop in P]: { [token in keyof Theme[T]]: any }; // TODO: fix any
-    }
-  );
+    { [prop]: {} }
+  ) as {
+    [prop in P]: { [token in keyof Theme[T]]: any }; // TODO: fix any
+  };
 }

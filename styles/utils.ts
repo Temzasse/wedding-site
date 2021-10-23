@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type * as Stitches from "@stitches/react";
 
 type TypographyVariant =
   | "body"
@@ -12,25 +13,6 @@ type TypographyVariant =
 type TypographyVariantVar = `$${TypographyVariant}`;
 
 const rem = (px: number) => `${px / 16}rem`;
-
-// const decorationHeight = 70;
-// const leafDecoration = {
-//   paddingBottom: `${decorationHeight}px`,
-//   position: "relative",
-//   "&::after": {
-//     content: `""`,
-//     display: "block",
-//     position: "absolute",
-//     bottom: "0px",
-//     left: "16px",
-//     right: "16px",
-//     height: `${decorationHeight}px`,
-//     backgroundImage: 'url("branch.png")',
-//     backgroundPosition: "0px 0px",
-//     backgroundSize: "100% 100%",
-//     backgroundRepeat: "no-repeat",
-//   },
-// } as any;
 
 const typographyVariants: {
   [variant in TypographyVariantVar]: CSSProperties;
@@ -86,31 +68,33 @@ const typographyVariants: {
   },
 };
 
-export const typography = () => (value: TypographyVariantVar) => {
+export const typography = (value: TypographyVariantVar) => {
   return typographyVariants[value];
 };
 
-export const paddingVertical = () => (value: any) => ({
+export const paddingVertical = (value: Stitches.PropertyValue<"padding">) => ({
   paddingTop: value,
   paddingBottom: value,
 });
 
-export const paddingHorizontal = () => (value: any) => ({
+export const paddingHorizontal = (
+  value: Stitches.PropertyValue<"padding">
+) => ({
   paddingLeft: value,
   paddingRight: value,
 });
 
-export const margingHorizontal = () => (value: any) => ({
+export const margingHorizontal = (value: Stitches.PropertyValue<"margin">) => ({
   marginLeft: value,
   marginRight: value,
 });
 
-export const size = () => (value: any) => ({
+export const size = (value: Stitches.PropertyValue<"width">) => ({
   width: value,
   height: value,
 });
 
-export const absoluteFill = () => (value: any) => ({
+export const absoluteFill = () => ({
   position: "absolute",
   top: "0px",
   right: "0px",
@@ -118,7 +102,7 @@ export const absoluteFill = () => (value: any) => ({
   left: "0px",
 });
 
-export const fixedFill = () => (value: any) => ({
+export const fixedFill = () => ({
   position: "fixed",
   top: "0px",
   right: "0px",
@@ -126,7 +110,7 @@ export const fixedFill = () => (value: any) => ({
   left: "0px",
 });
 
-export const flexCenter = () => (value: any) => ({
+export const flexCenter = () => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
