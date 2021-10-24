@@ -17,10 +17,14 @@ export const { styled, css, theme, globalCss, getCssText, keyframes } =
       colors: {
         text: "#333",
         gray: "#888",
+        grayLight: "#eee",
+        grayLighter: "#f5f5f5",
         white: "#fff",
         primary: "hsl(133, 35%, 10%)",
         secondary: "hsl(155, 7%, 47%)",
         tertiary: "hsl(39, 56%, 46%)",
+        quizMilka: "#db79ff",
+        quizTeemu: "#3f9fff",
       },
       space: {
         none: "0px",
@@ -55,6 +59,7 @@ export const { styled, css, theme, globalCss, getCssText, keyframes } =
     },
 
     media: {
+      xs: "(max-width: 374px)",
       sm: "(max-width: 640px)",
       md: "(max-width: 768px)",
       lg: "(max-width: 1024px)",

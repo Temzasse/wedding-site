@@ -25,7 +25,7 @@ const typographyVariants: {
   },
   $bodySmall: {
     fontFamily: '"Open Sans", sans-serif',
-    lineHeight: 1.2,
+    lineHeight: 1.4,
     fontSize: rem(14),
     fontWeight: 400,
   },

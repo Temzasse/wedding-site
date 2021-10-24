@@ -1,8 +1,9 @@
+import React from "react";
 import Head from "next/head";
 import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
 import { Text, Stack, Spacer, Link } from "@components/common";
-import SignupForm from "@components/SignupForm";
+import QuizForm from "@components/QuizForm";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 
@@ -13,7 +14,15 @@ import branchImg from "../images/branch.png";
 import leafsImg from "../images/leafs.png";
 import { PAGE_WIDTH } from "../constants";
 
+const IS_DEV = process.env.NODE_ENV === "development";
+
 export default function Home() {
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!isMounted) setIsMounted(true);
+  }, [isMounted]);
+
   return (
     <Page>
       <Head>
@@ -87,6 +96,25 @@ export default function Home() {
                 </Stack>
               </Stack>
             </Section>
+
+            {IS_DEV && (
+              <Section>
+                <Stack spacing="large" align="center">
+                  <Stack spacing="small" align="center">
+                    <Text variant="title2" id="quiz">
+                      Tietovisa
+                    </Text>
+                    <Text variant="title3" color="gray">
+                      Quiz
+                    </Text>
+                  </Stack>
+
+                  <LeafDecoration />
+
+                  {isMounted && <QuizForm />}
+                </Stack>
+              </Section>
+            )}
 
             <Section>
               <Stack spacing="large" align="center">
@@ -343,13 +371,12 @@ const Content = styled("div", {
   backgroundColor: "#fff",
   boxShadow: "0px 0px 24px rgb(0, 0, 0, 0.05)",
   overflow: "hidden",
-  when: {
-    md: {
-      paddingTop: "200px",
-    },
-    sm: {
-      paddingTop: "120px",
-    },
+
+  "@md": {
+    paddingTop: "200px",
+  },
+  "@sm": {
+    paddingTop: "120px",
   },
 });
 
@@ -376,10 +403,6 @@ const HeaderDecoration = styled("div", {
     width: "100%",
     objectFit: "contain",
   },
-});
-
-const SignupFormWrapper = styled("div", {
-  margingHorizontal: "calc(-1 * $normal) !important",
 });
 
 const MapImg = styled("div", {

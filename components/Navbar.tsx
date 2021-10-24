@@ -8,8 +8,8 @@ export default function Navbar() {
     <Nav>
       <Stack
         as="ul"
-        axis={{ initial: "x", md: "y" }}
-        spacing={{ initial: "none", md: "medium" }}
+        axis={{ "@initial": "x", "@md": "y" }}
+        spacing={{ "@initial": "none", "@md": "medium" }}
         align="center"
         justify="between"
       >
@@ -42,11 +42,11 @@ const Nav = styled("nav", {
 
 const NavItem = styled("li", {
   borderBottom: "1px solid transparent",
-  when: {
-    md: {
-      marginBottom: "column",
-    },
+
+  "@md": {
+    marginBottom: "column",
   },
+
   "&:hover": {
     borderBottom: "1px solid $tertiary",
   },
