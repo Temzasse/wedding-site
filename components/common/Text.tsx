@@ -2,7 +2,7 @@ import { styled } from "@styles/styled";
 import { themeProp } from "@styles/helpers";
 
 type Props = React.ComponentProps<typeof StyledText> & {
-  as?: keyof JSX.Element;
+  as?: keyof JSX.IntrinsicElements;
 };
 
 export function Text(props: Props) {
