@@ -86,12 +86,6 @@ export default function Home() {
                   </Stack>
                 </Stack>
               </Stack>
-
-              <Spacer size="xlarge" />
-
-              <SignupFormWrapper>
-                <SignupForm />
-              </SignupFormWrapper>
             </Section>
 
             <Section>
