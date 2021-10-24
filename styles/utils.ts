@@ -8,6 +8,8 @@ type TypographyVariant =
   | "title1"
   | "title2"
   | "title3"
+  | "quizTitle"
+  | "quizTitleSmall"
   | "navLink";
 
 type TypographyVariantVar = `$${TypographyVariant}`;
@@ -49,6 +51,20 @@ const typographyVariants: {
     fontSize: rem(26),
     fontWeight: 500,
     color: "$primary",
+  },
+  $quizTitle: {
+    fontFamily: '"Playfair Display", serif',
+    lineHeight: 1,
+    fontSize: rem(42),
+    fontWeight: 400,
+    color: "$white",
+  },
+  $quizTitleSmall: {
+    fontFamily: '"Playfair Display", serif',
+    lineHeight: 1,
+    fontSize: rem(32),
+    fontWeight: 400,
+    color: "$white",
   },
   $button: {
     fontFamily: '"Playfair Display", serif',

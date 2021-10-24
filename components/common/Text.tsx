@@ -19,6 +19,8 @@ export function Text(props: Props) {
 const variantToTag = {
   body: "p",
   bodySmall: "p",
+  quizTitle: "p",
+  quizTitleSmall: "p",
   title1: "h1",
   title2: "h2",
   title3: "h3",
@@ -38,6 +40,8 @@ const StyledText = styled("p", {
       title1: { typography: "$title1" },
       title2: { typography: "$title2" },
       title3: { typography: "$title3" },
+      quizTitle: { typography: "$quizTitle" },
+      quizTitleSmall: { typography: "$quizTitleSmall" },
     },
     align: {
       left: { textAlign: "left" },

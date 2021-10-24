@@ -23,6 +23,7 @@ export const { styled, css, theme, globalCss, getCssText, keyframes } =
         primary: "hsl(133, 35%, 10%)",
         secondary: "hsl(155, 7%, 47%)",
         tertiary: "hsl(39, 56%, 46%)",
+        tertiaryLight: "hsl(39, 56%, 70%)",
         quizMilka: "#db79ff",
         quizTeemu: "#3f9fff",
       },

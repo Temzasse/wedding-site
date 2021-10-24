@@ -102,10 +102,10 @@ export default function Home() {
                 <Stack spacing="large" align="center">
                   <Stack spacing="small" align="center">
                     <Text variant="title2" id="quiz">
-                      Tietovisa
+                      Häävisa
                     </Text>
-                    <Text variant="title3" color="gray">
-                      Quiz
+                    <Text variant="title3" color="tertiaryLight">
+                      Wedding quiz
                     </Text>
                   </Stack>
 

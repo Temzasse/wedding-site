@@ -17,13 +17,7 @@ export default function QuizForm() {
   const [questions, setQuestions] = React.useState(QUESTIONS);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [name, setName] = React.useState("");
-  const [completed, setCompleted] = React.useState(() => {
-    try {
-      return !!JSON.parse(localStorage.getItem("quiz-completed"));
-    } catch (error) {
-      return false;
-    }
-  });
+  const [completed, setCompleted] = React.useState(false);
 
   const allAnswered =
     currentQuestion === questions.length - 1 &&
@@ -65,7 +59,6 @@ export default function QuizForm() {
   function submit() {
     // TODO: submit to server
     setCompleted(true);
-    localStorage.setItem("quiz-completed", JSON.stringify(true));
     document.querySelector("#quiz").scrollIntoView({ behavior: "smooth" });
   }
 
@@ -93,12 +86,8 @@ export default function QuizForm() {
         <CardStack>
           <Card>
             <CardContent style={GRADIENTS[10]}>
-              <Stack axis="y" spacing="small">
-                <Text
-                  variant="title2"
-                  color="white"
-                  style={{ lineHeight: 1.2 }}
-                >
+              <Stack axis="y" spacing="normal">
+                <Text variant="quizTitle" color="white">
                   🤩 Valmista!
                 </Text>
 
@@ -138,7 +127,10 @@ export default function QuizForm() {
                   <CardContent style={question.gradient}>
                     <Stack axis="y" spacing="small">
                       <Text
-                        variant={{ "@initial": "title2", "@xs": "title3" }}
+                        variant={{
+                          "@initial": "quizTitle",
+                          "@xs": "quizTitleSmall",
+                        }}
                         color="white"
                         style={{ lineHeight: 1.2 }}
                       >
@@ -300,11 +292,12 @@ const Action = styled("div", {
 const ActionButton = styled("button", {
   width: "100%",
   backgroundColor: "$white",
-  paddingVertical: "$medium",
-  paddingHorizontal: "$large",
+  paddingVertical: "$normal",
+  paddingHorizontal: "$medium",
   borderRadius: "$full",
   boxShadow: "0px 1px 4px rgba(0,0,0,0.05)",
   typography: "$body",
+  color: "$text",
 
   "& > span": {
     color: "$gray",
