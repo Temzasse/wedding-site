@@ -95,25 +95,6 @@ export default function Home() {
               </Stack>
             </Section>
 
-            {IS_DEV && (
-              <Section>
-                <Stack spacing="large" align="center">
-                  <Stack spacing="small" align="center">
-                    <Text variant="title2" id="quiz">
-                      Häävisa
-                    </Text>
-                    <Text variant="title3" color="tertiaryLight">
-                      Wedding quiz
-                    </Text>
-                  </Stack>
-
-                  <LeafDecoration />
-
-                  {isMounted && <QuizForm />}
-                </Stack>
-              </Section>
-            )}
-
             <Section>
               <Stack spacing="large" align="center">
                 <Text variant="title2" id="reittiohjeet">
@@ -332,6 +313,25 @@ export default function Home() {
                 </Stack>
               </Stack>
             </Section>
+
+            {IS_DEV && (
+              <Section>
+                <Stack spacing="large" align="center">
+                  <Stack spacing="small" align="center">
+                    <Text variant="title2" id="quiz">
+                      Häävisa
+                    </Text>
+                    <Text variant="title3" color="tertiaryLight">
+                      Wedding quiz
+                    </Text>
+                  </Stack>
+
+                  <LeafDecoration />
+
+                  {isMounted && <QuizForm />}
+                </Stack>
+              </Section>
+            )}
           </Stack>
         </main>
 
