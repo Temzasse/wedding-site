@@ -56,10 +56,21 @@ export default function QuizForm() {
     setQuestions(QUESTIONS);
   }
 
-  function submit() {
-    // TODO: submit to server
-    setCompleted(true);
-    document.querySelector("#quiz").scrollIntoView({ behavior: "smooth" });
+  async function submit() {
+    if (!name) return;
+
+    const values = { "form-name": "quiz", name };
+
+    const res = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(values),
+    });
+
+    if (res.ok) {
+      setCompleted(true);
+      document.querySelector("#quiz").scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   if (completed) {
@@ -365,6 +376,14 @@ const Input = styled("input", {
     boxShadow: "0px 0px 0px 4px rgba(0,0,0,0.1)",
   },
 });
+
+// Helpers ---------------------------------------------------------------------
+
+function encode(data: any) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 // Constants -------------------------------------------------------------------
 

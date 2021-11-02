@@ -14,14 +14,23 @@ import branchImg from "../images/branch.png";
 import leafsImg from "../images/leafs.png";
 import { PAGE_WIDTH } from "../constants";
 
-const IS_DEV = process.env.NODE_ENV === "development";
-
 export default function Home() {
-  const [isMounted, setIsMounted] = React.useState(false);
+  const [quizVisible, setQuizVisible] = React.useState(false);
 
   React.useEffect(() => {
-    if (!isMounted) setIsMounted(true);
-  }, [isMounted]);
+    function hashHandler() {
+      const hash = location.hash.substr(1);
+      if (!quizVisible && hash === "quiz") setQuizVisible(true);
+    }
+
+    window.addEventListener("hashchange", hashHandler, false);
+
+    hashHandler();
+
+    return () => {
+      window.removeEventListener("hashchange", hashHandler, false);
+    };
+  }, []);
 
   return (
     <Page>
@@ -314,7 +323,7 @@ export default function Home() {
               </Stack>
             </Section>
 
-            {IS_DEV && (
+            {quizVisible && (
               <Section>
                 <Stack spacing="large" align="center">
                   <Stack spacing="small" align="center">
@@ -328,7 +337,7 @@ export default function Home() {
 
                   <LeafDecoration />
 
-                  {isMounted && <QuizForm />}
+                  <QuizForm />
                 </Stack>
               </Section>
             )}
