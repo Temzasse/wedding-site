@@ -341,6 +341,15 @@ export default function Home() {
                 </Stack>
               </Section>
             )}
+
+            <form
+              name="quiz"
+              method="post"
+              data-netlify="true"
+              className="visually-hidden"
+            >
+              <input type="hidden" name="form-name" value="quiz" />
+            </form>
           </Stack>
         </main>
 
