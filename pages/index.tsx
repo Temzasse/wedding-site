@@ -2,36 +2,26 @@ import React from "react";
 import Head from "next/head";
 import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
-import { Text, Stack, Spacer, Link } from "@components/common";
-import QuizForm from "@components/QuizForm";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
+import QuizSection from "@components/QuizSection";
+
+import {
+  Text,
+  Stack,
+  Spacer,
+  Link,
+  Section,
+  LeafDecoration,
+} from "@components/common";
 
 import logoImg from "../images/logo.png";
 import teemuMilkaImg from "../images/teemu_milka.png";
 import mapImg from "../images/map.png";
-import branchImg from "../images/branch.png";
 import leafsImg from "../images/leafs.png";
 import { PAGE_WIDTH } from "../constants";
 
 export default function Home() {
-  const [quizVisible, setQuizVisible] = React.useState(false);
-
-  React.useEffect(() => {
-    function hashHandler() {
-      const hash = location.hash.substr(1);
-      if (!quizVisible && hash === "quiz") setQuizVisible(true);
-    }
-
-    window.addEventListener("hashchange", hashHandler, false);
-
-    hashHandler();
-
-    return () => {
-      window.removeEventListener("hashchange", hashHandler, false);
-    };
-  }, []);
-
   return (
     <Page>
       <Head>
@@ -323,33 +313,7 @@ export default function Home() {
               </Stack>
             </Section>
 
-            {quizVisible && (
-              <Section>
-                <Stack spacing="large" align="center">
-                  <Stack spacing="small" align="center">
-                    <Text variant="title2" id="quiz">
-                      Häävisa
-                    </Text>
-                    <Text variant="title3" color="tertiaryLight">
-                      Wedding quiz
-                    </Text>
-                  </Stack>
-
-                  <LeafDecoration />
-
-                  <QuizForm />
-                </Stack>
-              </Section>
-            )}
-
-            <form
-              name="quiz"
-              method="post"
-              data-netlify="true"
-              className="visually-hidden"
-            >
-              <input type="hidden" name="form-name" value="quiz" />
-            </form>
+            <QuizSection />
           </Stack>
         </main>
 
@@ -358,19 +322,6 @@ export default function Home() {
         <Footer />
       </Content>
     </Page>
-  );
-}
-
-function LeafDecoration() {
-  return (
-    <Img
-      src={branchImg}
-      alt=""
-      width={150}
-      height={70}
-      webp
-      style={{ height: "auto" }}
-    />
   );
 }
 
@@ -401,13 +352,6 @@ const Header = styled("header", {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-});
-
-const Section = styled("section", {
-  display: "flex",
-  flexDirection: "column",
-  textAlign: "center",
-  paddingHorizontal: "$normal",
 });
 
 const HeaderDecoration = styled("div", {
