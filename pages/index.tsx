@@ -86,9 +86,7 @@ export default function Home() {
 
                     <Text variant="body">
                       Tältä sivulta löydät tietoa häihin liittyvistä käytännön
-                      asioista. Ilmoitathan osallistumisestasi alla olevalla
-                      lomakkeella viimeistään <br />
-                      <strong>15. syyskuuta</strong> mennessä.
+                      asioista.
                     </Text>
 
                     <Text variant="body">Joulukuussa juhlitaan!</Text>
