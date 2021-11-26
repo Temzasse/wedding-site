@@ -75,6 +75,11 @@ export default function Home() {
                   <LeafDecoration />
 
                   <Stack spacing="medium">
+                    <Text variant="bodyStrong">
+                      HUOM! Muistathan ottaa mukaan koronapassin tai todistuksen
+                      negatiivisesta testituloksesta.
+                    </Text>
+
                     <Text variant="body">
                       Toivotamme sinut tervetulleeksi juhlimaan häitämme
                       joulukuun 4. päivänä Hirvihaaran kartanon Lasipaviljonkiin
