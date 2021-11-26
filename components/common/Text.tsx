@@ -18,6 +18,7 @@ export function Text(props: Props) {
 
 const variantToTag = {
   body: "p",
+  bodyStrong: "strong",
   bodySmall: "p",
   quizTitle: "p",
   quizTitleSmall: "p",
@@ -36,6 +37,7 @@ const StyledText = styled("p", {
     })),
     variant: {
       body: { typography: "$body" },
+      bodyStrong: { typography: "$bodyStrong" },
       bodySmall: { typography: "$bodySmall" },
       title1: { typography: "$title1" },
       title2: { typography: "$title2" },

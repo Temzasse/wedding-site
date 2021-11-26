@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { styled } from "@styles/styled";
+import { styled, keyframes } from "@styles/styled";
 import { Text, Stack } from "@components/common";
 
 type Answer = null | "Teemu" | "Milka";
@@ -110,9 +110,26 @@ export default function QuizForm() {
                 <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
 
                 <Text variant="bodySmall" color="white">
-                  All done! Please redo the quiz to change your answers or
-                  submit your current answers.
+                  All done! Please submit your current answers or redo the quiz
+                  to change your answers.
                 </Text>
+
+                <ArrowIcon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                    />
+                  </svg>
+                </ArrowIcon>
               </Stack>
             </CardContent>
           </Card>
@@ -176,12 +193,6 @@ export default function QuizForm() {
         <div>
           {allAnswered ? (
             <Stack axis="y" spacing="large" align="center" justify="center">
-              <Action>
-                <ActionButton onClick={redo}>
-                  🔄 Muuta vastauksia <span>(redo)</span>
-                </ActionButton>
-              </Action>
-
               <div>
                 <Stack
                   axis="y"
@@ -191,7 +202,7 @@ export default function QuizForm() {
                 >
                   <Label>
                     <Stack axis="x" spacing="xxsmall" align="center">
-                      <Text variant="body">Syötä nimesi</Text>
+                      <Text variant="bodyStrong">Syötä nimesi</Text>
                       <Text variant="body" color="gray">
                         (name):
                       </Text>
@@ -212,6 +223,14 @@ export default function QuizForm() {
                   </Action>
                 </Stack>
               </div>
+
+              <Divider />
+
+              <Action>
+                <ActionButton onClick={redo}>
+                  🔄 Muuta vastauksia <span>(redo)</span>
+                </ActionButton>
+              </Action>
             </Stack>
           ) : (
             <Stack axis="x" spacing="small" align="center" justify="center">
@@ -233,6 +252,12 @@ export default function QuizForm() {
     </Wrapper>
   );
 }
+
+const bounceAnimation = keyframes({
+  "0%": { transform: "translateY(0px)" },
+  "50%": { transform: "translateY(8px)" },
+  "100%": { transform: "translateY(0px)" },
+});
 
 const Wrapper = styled("div", {
   width: "100%",
@@ -375,6 +400,19 @@ const Input = styled("input", {
   "&:focus": {
     boxShadow: "0px 0px 0px 4px rgba(0,0,0,0.1)",
   },
+});
+
+const ArrowIcon = styled("div", {
+  width: 32,
+  height: 32,
+  alignSelf: "center",
+  animation: `${bounceAnimation} 2000ms both infinite `,
+});
+
+const Divider = styled("div", {
+  height: 1,
+  width: "100%",
+  backgroundColor: "$grayLight",
 });
 
 // Helpers ---------------------------------------------------------------------

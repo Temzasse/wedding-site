@@ -3,6 +3,7 @@ import type * as Stitches from "@stitches/react";
 
 type TypographyVariant =
   | "body"
+  | "bodyStrong"
   | "bodySmall"
   | "button"
   | "title1"
@@ -24,6 +25,12 @@ const typographyVariants: {
     lineHeight: 1.5,
     fontSize: rem(18),
     fontWeight: 400,
+  },
+  $bodyStrong: {
+    fontFamily: '"Open Sans", sans-serif',
+    lineHeight: 1.5,
+    fontSize: rem(18),
+    fontWeight: 600,
   },
   $bodySmall: {
     fontFamily: '"Open Sans", sans-serif',
