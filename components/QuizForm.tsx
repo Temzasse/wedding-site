@@ -103,8 +103,8 @@ export default function QuizForm() {
                 </Text>
 
                 <Text variant="body" color="white">
-                  Voit vielä halutessasi muuttaa vastauksiasi ennen
-                  lähettämistä.
+                  Syötä nimesi ja lähetä vastauksesi. Voit vielä myös muuttaa
+                  vastauksia halutessasi.
                 </Text>
 
                 <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
@@ -484,15 +484,15 @@ const QUESTIONS: Question[] = [
   },
   {
     answered: false,
-    en: "Which one asked first to a date?",
+    en: "Who made the first move?",
     fi: "Kumpi pyysi ensin treffeille?",
     value: null,
     gradient: GRADIENTS[1],
   },
   {
     answered: false,
-    en: "Which one is more XXXXXX?",
-    fi: "Kumpi on XXXXXX?",
+    en: "Which one is more patient?",
+    fi: "Kumpi on kärsivällisempi?",
     value: null,
     gradient: GRADIENTS[2],
   },
@@ -512,7 +512,7 @@ const QUESTIONS: Question[] = [
   },
   {
     answered: false,
-    en: "Which one is more messy?",
+    en: "Which one is messier?",
     fi: "Kumpi on sotkuisempi?",
     value: null,
     gradient: GRADIENTS[5],
