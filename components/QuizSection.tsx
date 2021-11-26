@@ -9,7 +9,9 @@ export default function QuizSection() {
   React.useEffect(() => {
     function hashHandler() {
       const hash = location.hash.substr(1);
-      if (!quizVisible && hash === "quiz") setQuizVisible(true);
+      if (!quizVisible && hash === "quiz") {
+        setQuizVisible(true);
+      }
     }
 
     window.addEventListener("hashchange", hashHandler, false);
@@ -20,6 +22,13 @@ export default function QuizSection() {
       window.removeEventListener("hashchange", hashHandler, false);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (quizVisible) {
+      const quiz = document.getElementById("quiz");
+      quiz?.scrollIntoView();
+    }
+  }, [quizVisible]);
 
   return (
     <>
