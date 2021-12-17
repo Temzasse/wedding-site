@@ -4,7 +4,6 @@ import Img from "react-optimized-image";
 import { styled } from "@styles/styled";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
-import QuizSection from "@components/QuizSection";
 
 import {
   Text,
@@ -317,8 +316,6 @@ export default function Home() {
                 </Stack>
               </Stack>
             </Section>
-
-            <QuizSection />
           </Stack>
         </main>
 
