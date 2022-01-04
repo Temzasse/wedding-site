@@ -98,6 +98,13 @@ export default function Home() {
                     >
                       Katso kuvat
                     </Button>
+
+                    <Text variant="bodySmall">
+                      PS: Jos haluat jakaa kuvia somessa, muistathan tägätä
+                      upean kuvaajamme Jenni Tuomisen (
+                      <strong>@jennituominenphotography</strong>) ja pitää kuvat
+                      alkuperäisessä muodossaan ilman ylimääräisiä filttereitä.
+                    </Text>
                   </Stack>
                 </Stack>
               </Stack>
