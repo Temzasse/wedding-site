@@ -12,6 +12,7 @@ import {
   Link,
   Section,
   LeafDecoration,
+  Button,
 } from "@components/common";
 
 import logoImg from "../images/logo.png";
@@ -67,32 +68,36 @@ export default function Home() {
             <Section>
               <Stack spacing="xlarge">
                 <Stack spacing="large" align="center">
-                  <Text variant="title2" id="tervetuloa">
-                    Tervetuloa
+                  <Text variant="title2" id="kuvat">
+                    Kiitos!
                   </Text>
 
                   <LeafDecoration />
 
-                  <Stack spacing="medium">
-                    <Text variant="bodyStrong">
-                      HUOM! Muistathan ottaa mukaan koronapassin tai todistuksen
-                      negatiivisesta testituloksesta.
+                  <Stack spacing="medium" align="center">
+                    <Text variant="body">
+                      Ihana vieraamme,
+                      <br />
+                      kiitos, että olit mukana tekemässä tärkeästä päivästämme
+                      ikimuistoista!
                     </Text>
 
                     <Text variant="body">
-                      Toivotamme sinut tervetulleeksi juhlimaan häitämme
-                      joulukuun 4. päivänä Hirvihaaran kartanon Lasipaviljonkiin
-                      Mäntsälään. Luvassa on rentoa ja lämmintä tunnelmaa
-                      ystävien ja perheen kesken, hyvää ruokaa, nauramista ja
-                      toivottavasti myös paljon tanssimista!
+                      Haluamme jakaa kanssasi päivän tunnelmat ja muistot kuvien
+                      merkeissä. Näet kuvaajamme ottamat kuvat oheisen linkin
+                      takaa. Sivulla sinun tulee ensin valita{" "}
+                      <strong>ENTER AS GUEST</strong> ja sitten syöttää
+                      salasana: <strong>Hirvihaara041221</strong>
                     </Text>
 
-                    <Text variant="body">
-                      Tältä sivulta löydät tietoa häihin liittyvistä käytännön
-                      asioista.
-                    </Text>
-
-                    <Text variant="body">Joulukuussa juhlitaan!</Text>
+                    <Button
+                      as="a"
+                      href="https://jennituominenphotography.pixieset.com/taskulat/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Katso kuvat
+                    </Button>
                   </Stack>
                 </Stack>
               </Stack>
